@@ -2,9 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "forever": "forever -w server.js"
+    "forever": "forever -w server.js",
+    "client": "cd .. && cd client && npm start"
   },
   "author": "",
   "license": "ISC",
