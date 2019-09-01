@@ -5,6 +5,32 @@ const User = require('../modules/User');
 const Post = require('../modules/Post');
 const { validationResult,check } = require('express-validator');
 
+router.get(
+    '/posts',
+    async(req,res) => {
+        try {
+            let posts = await Post.find();
+            res.json(posts);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error" });
+        }
+    }
+)
+
+router.get(
+    '/:post_id',
+    async(req,res) => {
+        try {
+            let post = await Post.findById(req.params.post_id);
+            res.json(post);  
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+)
+
 router.post(
     '/',
     [
