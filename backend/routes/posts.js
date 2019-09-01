@@ -132,6 +132,31 @@ router.delete(
             return res.status(500).json({ msg: "Server Error..." });
         }
     }
+);
+
+router.delete(
+    '/likes/:post_id/:like_id',
+    auth,
+    async(req,res) => {
+        try {
+            let post = await Post.findById(req.params.post_id);
+            const likeAllow = post.likes.find(like => like.user.toString() === req.user.id);
+            if(!likeAllow){
+                return res.status(404).json({ msg: "There is no like" });
+            }
+            if(likeAllow.user.toString() !== req.user.id){
+                return res.status(401).json({ msg: "User is not authorized to do that" });
+            }
+            const removeLikeIndex = post.likes
+            .find(like => like._id !== req.params.like_id);
+            post.likes.splice(removeLikeIndex,1);
+            await post.save();
+            res.json(post);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
 )
 
 module.exports = router;
