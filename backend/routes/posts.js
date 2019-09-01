@@ -151,7 +151,7 @@ router.delete(
             .find(like => like._id !== req.params.like_id);
             post.likes.splice(removeLikeIndex,1);
             await post.save();
-            res.json(post);
+            res.json(post.likes);
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
