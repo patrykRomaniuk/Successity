@@ -157,6 +157,24 @@ router.delete(
             return res.status(500).json({ msg: "Server Error..." });
         }
     }
+);
+
+router.delete(
+    '/comments/:post_id/:comment_id',
+    auth,
+    async(req,res) => {
+        try {
+            let post = await Post.findById(req.params.post_id);
+            const removeCommentIndex = post.comments
+            .find(comment => comment._id === req.params.comment_id);
+            post.comments.splice(removeCommentIndex,1);
+            await post.save();
+            res.json(post.comments);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
 )
 
 module.exports = router;
