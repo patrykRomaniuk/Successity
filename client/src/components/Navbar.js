@@ -1,14 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <nav className="main__nav">
             <div className="logo-wrapper">LOGO</div>
             <div className="nav-links">
-                <a href="#" className="href__style__remove nav__link">Users</a>
-                <a href="#" className="href__style__remove nav__link">Topics</a>
-                <a href="#" className="href__style__remove nav__link">Login</a>
-                <a href="#" className="href__style__remove nav__link">Sign Up</a>
+                <Link to="/users" className="href__style__remove nav__link">Users</Link>
+                <Link href="#" className="href__style__remove nav__link">Topics</Link>
+                <Link href="#" className="href__style__remove nav__link">Login</Link>
+                <Link href="#" className="href__style__remove nav__link">Sign Up</Link>
             </div>
         </nav>
     )
