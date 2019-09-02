@@ -76,7 +76,7 @@ router.put(
             }
             post.likes.unshift({ user: req.user.id });
             await post.save();
-            res.json(post);
+            res.json(post.likes);
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
@@ -108,7 +108,7 @@ router.put(
             };
             post.comments.unshift(comment);
             await post.save();
-            res.json(post);
+            res.json(post.comments);
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
