@@ -1,4 +1,193 @@
-body {
-  background: black;
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script|Asap+Condensed&display=swap");
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html body {
+  margin: 0;
+  padding: 0;
+  background: #fffefe;
+}
+
+html body .flex__center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .p__size {
+  font-size: 1.2em;
+}
+
+@media (min-width: 1024px) {
+  html body .p__size {
+    font-size: 1.4em;
+  }
+}
+
+html body .font__bold {
+  font-weight: bold;
+}
+
+html body .font__p {
+  font-family: 'Asap Condensed',sans-serif;
+}
+
+html body .main__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 10vh;
+}
+
+html body .main__nav .logo-wrapper {
+  width: 30%;
+}
+
+html body .main__nav .nav-links {
+  height: 100%;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .main__nav .nav-links .nav__link {
+  font-size: 1em;
+  -webkit-transition: border .2s ease-in-out;
+  transition: border .2s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  html body .main__nav .nav-links .nav__link {
+    font-size: 1.5em;
+  }
+}
+
+html body .main__nav .nav-links .nav__link:hover {
+  color: #201414;
+  border-bottom: 1px solid #0b0a0a;
+}
+
+html body .landing-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80vh;
+}
+
+@media (min-width: 1024px) {
+  html body .landing-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+    height: 90vh;
+  }
+}
+
+html body .landing-wrapper .text-wrapper {
+  width: 80vw;
+}
+
+@media (min-width: 1024px) {
+  html body .landing-wrapper .text-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 50vw;
+    height: 100%;
+  }
+}
+
+html body .landing-wrapper .text-wrapper .text-header-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*  .text-header{
+
+                    }*/
+}
+
+html body .landing-wrapper .text-wrapper .text-header-wrapper span {
+  color: #3cd1fd;
+  font-family: 'Kaushan Script',sans-serif;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+html body .landing-wrapper .text-wrapper .text-button-wrapper a {
+  color: #f4f4f4;
+  text-decoration: none;
+  text-align: center;
+  font-family: 'Barlow',sans-serif;
+  padding: 5px;
+  border: 1px solid #3cd1fd;
+  font-size: 1em;
+  background: #3cd1fd;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  html body .landing-wrapper .text-wrapper .text-button-wrapper a {
+    font-size: 1em;
+  }
+}
+
+html body .landing-wrapper .text-wrapper .text-button-wrapper a:hover {
+  background: #39c6f1;
+}
+
+html body .href__style__remove {
+  text-decoration: none;
+  color: #0b0a0a;
+  cursor: pointer;
 }
 /*# sourceMappingURL=App.css.map */
