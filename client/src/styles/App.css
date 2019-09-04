@@ -32,6 +32,14 @@ html body .p__size {
   }
 }
 
+html body .app_color_font {
+  color: #3cd1fd;
+}
+
+html body .app_color_background {
+  background: #3cd1fd;
+}
+
 html body .font__bold {
   font-weight: bold;
 }
