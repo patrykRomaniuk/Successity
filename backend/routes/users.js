@@ -18,7 +18,6 @@ router.post(
     ],
     async(req,res) => {
         const { name,last_name,username,email,password } = req.body;
-        console.log(req.body);
         let validateUserByEmail = await User.findOne({ email });
         let validateUserByUserName = await User.findOne({ username });
         const errors = validationResult(req);
