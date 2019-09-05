@@ -1,9 +1,14 @@
 import React,{ useState } from 'react';
 import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
+import { Redirect } from 'react-router-dom';
 import '../styles/RegisterPage.css';
 
-const Register = ({ registerUser }) => {
+const Register = ({ registerUser,isAuthenticated }) => {
+
+    if(isAuthenticated){
+        return <Redirect to="/"/>
+    }
 
     const [ formData,setFormData ] = useState({
         name: '',
@@ -20,9 +25,16 @@ const Register = ({ registerUser }) => {
     }
 
     const onSubmit = e => {
-        e.preventDefault();
-        console.log('ahah')
-        setFormData({ ...formData,password: '' })
+            e.preventDefault();
+            registerUser(name,last_name,username,email,password);
+            setFormData({ 
+            ...formData,       
+            name: '',
+            last_name: '',
+            username: '',
+            email: '',
+            password: '' 
+            })
     }
 
     return (
@@ -105,4 +117,8 @@ const Register = ({ registerUser }) => {
     )
 }
 
-export default connect(null, { registerUser })(Register);
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { registerUser })(Register);
