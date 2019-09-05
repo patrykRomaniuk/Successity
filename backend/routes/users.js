@@ -4,8 +4,36 @@ const config = require('config');
 const jwt = require('jsonwebtoken');
 const gravatar = require('gravatar');
 const bcryptjs = require('bcryptjs');
+const auth = require('../middleware/auth');
 const User = require('../modules/User');
 const { check,validationResult } = require('express-validator');
+
+router.get(
+    '/',
+    auth,
+    async(req,res) => {
+        try {
+            let user = await User.findById(req.user.id);
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.get(
+    '/users',
+    async(req,res) => {
+        try {
+            let users = await User.find();
+            res.json(users);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+)
 
 router.post(
     '/',
@@ -14,7 +42,7 @@ router.post(
         check('last_name','Last Name is required').not().isEmpty(),
         check('username',"Username is required").not().isEmpty(),
         check('email','Email is required').isEmail(),
-        check('password',"Password is required").not().isEmpty()
+        check('password',"Password is required").isLength({ min: 6 })
     ],
     async(req,res) => {
         const { name,last_name,username,email,password } = req.body;
