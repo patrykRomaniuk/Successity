@@ -92,6 +92,13 @@
 .register-page-wrapper .register-section .inputs-wrapper .button-wrapper {
   border-radius: 5px;
   margin-bottom: 1em;
+  -webkit-transition: background .4s ease-in-out;
+  transition: background .4s ease-in-out;
+}
+
+.register-page-wrapper .register-section .inputs-wrapper .button-wrapper:hover {
+  cursor: pointer;
+  background: #37c1eb;
 }
 
 .register-page-wrapper .register-section .inputs-wrapper .button-wrapper .button-letter {

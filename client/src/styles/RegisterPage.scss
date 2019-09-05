@@ -52,7 +52,12 @@
             .button-wrapper{
                 border-radius: 5px;
                 margin-bottom: 1em;
-               .button-letter{
+                transition: background .4s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background: #37c1eb;
+                }
+                .button-letter{
                    color: #f4f4f4;
                    padding: 0 .75em;
                }
