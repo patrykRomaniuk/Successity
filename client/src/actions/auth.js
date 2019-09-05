@@ -4,7 +4,8 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     AUTH_ERROR,
-    USER_LOADED 
+    USER_LOADED,
+    LOG_OUT
 } from './constants';
 import axios from 'axios';
 import setAuthToken from '../middleware/setAuthToken';
@@ -57,7 +58,7 @@ export const loginUser = ( email,password ) => async dispatch => {
             }
         };
         const body = JSON.stringify({ email,password });
-        const res = await axios.post('http://localhost:5000/api/users/login',config,body);
+        const res = await axios.post('http://localhost:5000/api/users/login',body,config);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
@@ -68,5 +69,15 @@ export const loginUser = ( email,password ) => async dispatch => {
         dispatch({
             type: LOGIN_FAIL
         });
+    }
+}
+
+export const logOut = () => async dispatch => {
+    try {
+        dispatch({
+            type: LOG_OUT
+        });
+    } catch (error) {
+        console.log(error.message);
     }
 }
