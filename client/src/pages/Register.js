@@ -1,7 +1,9 @@
 import React,{ useState } from 'react';
+import { connect } from 'react-redux';
+import { registerUser } from '../actions/auth';
 import '../styles/RegisterPage.css';
 
-const Register = () => {
+const Register = ({ registerUser }) => {
 
     const [ formData,setFormData ] = useState({
         name: '',
@@ -103,4 +105,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default connect(null, { registerUser })(Register);
