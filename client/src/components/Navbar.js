@@ -17,33 +17,33 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
 
             <div className="nav-links">
 
-                <Link to="/users" className="href__style__remove nav__link">Users</Link>
+                <Link to="/users" className="href__style__remove nav__link">Użytkownicy</Link>
 
-                <Link to="/topics" className="href__style__remove nav__link">Topics</Link>
+                <Link to="/topics" className="href__style__remove nav__link">Tematy</Link>
 
                 <Link 
                 to="/login" 
                 className="href__style__remove nav__link"
                  style={{ display: isAuthenticated ? 'none' : 'block' }}>
-                     Login
+                     Zaloguj się
                 </Link>
 
                 <Link 
                 to="/register" 
                 className="href__style__remove nav__link"
                 style={{ display: isAuthenticated ? 'none' : 'block' }}>
-                    Sign Up
+                    Załóż konto
                 </Link>
 
                 <Link to="/account" className="href__style__remove nav__link"
                  style={{ display: isAuthenticated ? 'block' : 'none' }}>
-                    Account <i className="fas fa-user"></i>
+                    Profil <i className="fas fa-user"></i>
                 </Link>
 
                 <Link to="/login" className="href__style__remove nav__link"
                 onClick={() => logOut()}
                 style={{ display: isAuthenticated ? 'block' : 'none' }}>
-                    Log Out <i className="fas fa-sign-out-alt"></i>
+                    Wyloguj się <i className="fas fa-sign-out-alt"></i>
                 </Link>
                 
                 <div className="hamburger-wrapper">
@@ -75,14 +75,14 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                      className="sidebar-link" 
                      to="/users"
                      onClick={() => setSidebar(false)}
-                     >Users
+                     >Użytkownicy
                      </Link>
 
                     <Link 
                     className="sidebar-link"
                      to="/topics"
                      onClick={() => setSidebar(false)}>
-                         Topics
+                         Tematy
                     </Link>
 
                     <Link 
@@ -91,7 +91,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     onClick={() => setSidebar(false)}
                     style={{ display: isAuthenticated ? 'block' : 'none' }}
                     >
-                        Account
+                        Profil
                     </Link>
 
                     <Link 
@@ -103,7 +103,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     }}
                     style={{ display: isAuthenticated ? 'block' : 'none' }}
                     >
-                        Log Out
+                        Wyloguj się
                     </Link>
 
                     <Link 
@@ -112,7 +112,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     onClick={() => setSidebar(false)}
                     style={{ display: isAuthenticated ? 'none' : 'block' }}
                     >
-                        Login
+                        Zaloguj się
                     </Link>
                     
                     <Link 
@@ -120,7 +120,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     to="/register"
                     onClick={() => setSidebar(false)}
                     style={{ display: isAuthenticated ? 'none' : 'block' }}
-                    >Sign Up
+                    >Załóż konto
                     </Link>
                 </div>
             </div>
