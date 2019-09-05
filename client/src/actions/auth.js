@@ -77,6 +77,7 @@ export const logOut = () => async dispatch => {
         dispatch({
             type: LOG_OUT
         });
+        dispatch(loadUser());
     } catch (error) {
         console.log(error.message);
     }
