@@ -1,7 +1,8 @@
 import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const Navbar = () => {
+const Navbar = ({ auth: { isAuthenticated } }) => {
     
     const [ isSidebar,setSidebar ] = useState(false);
     /* style={{
@@ -14,10 +15,35 @@ const Navbar = () => {
             <div className="logo-wrapper">LOGO</div>
 
             <div className="nav-links">
+
                 <Link to="/users" className="href__style__remove nav__link">Users</Link>
+
                 <Link to="/topics" className="href__style__remove nav__link">Topics</Link>
-                <Link to="/login" className="href__style__remove nav__link">Login</Link>
-                <Link to="/register" className="href__style__remove nav__link">Sign Up</Link>
+
+                <Link 
+                to="/login" 
+                className="href__style__remove nav__link"
+                 style={{ display: isAuthenticated ? 'none' : 'block' }}>
+                     Login
+                </Link>
+
+                <Link 
+                to="/register" 
+                className="href__style__remove nav__link"
+                style={{ display: isAuthenticated ? 'none' : 'block' }}>
+                    Sign Up
+                </Link>
+
+                <Link to="/account" className="href__style__remove nav__link"
+                 style={{ display: isAuthenticated ? 'block' : 'none' }}>
+                    Account <i className="fas fa-user"></i>
+                </Link>
+
+                <Link to="/login" className="href__style__remove nav__link"
+                style={{ display: isAuthenticated ? 'block' : 'none' }}>
+                    Log Out <i className="fas fa-sign-out-alt"></i>
+                </Link>
+                
                 <div className="hamburger-wrapper">
                     <i 
                     className="fas fa-bars hamburger-bar"
@@ -59,8 +85,28 @@ const Navbar = () => {
 
                     <Link 
                     className="sidebar-link" 
+                    to="/account"
+                    onClick={() => setSidebar(false)}
+                    style={{ display: isAuthenticated ? 'block' : 'none' }}
+                    >
+                        Account
+                    </Link>
+
+                    <Link 
+                    className="sidebar-link" 
                     to="/login"
-                    onClick={() => setSidebar(false)}>
+                    onClick={() => setSidebar(false)}
+                    style={{ display: isAuthenticated ? 'block' : 'none' }}
+                    >
+                        Log Out
+                    </Link>
+
+                    <Link 
+                    className="sidebar-link" 
+                    to="/login"
+                    onClick={() => setSidebar(false)}
+                    style={{ display: isAuthenticated ? 'none' : 'block' }}
+                    >
                         Login
                     </Link>
                     
@@ -68,6 +114,7 @@ const Navbar = () => {
                     className="sidebar-link" 
                     to="/register"
                     onClick={() => setSidebar(false)}
+                    style={{ display: isAuthenticated ? 'none' : 'block' }}
                     >Sign Up
                     </Link>
                 </div>
@@ -76,4 +123,8 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps)(Navbar);
