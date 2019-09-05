@@ -40,6 +40,11 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     Profil <i className="fas fa-user"></i>
                 </Link>
 
+                <Link to="/account" className="href__style__remove nav__link"
+                 style={{ display: isAuthenticated ? 'block' : 'none' }}>
+                    Zadaj pytanie <i className="fas fa-edit"></i>
+                </Link>
+
                 <Link to="/login" className="href__style__remove nav__link"
                 onClick={() => logOut()}
                 style={{ display: isAuthenticated ? 'block' : 'none' }}>
