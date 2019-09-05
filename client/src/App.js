@@ -9,6 +9,7 @@ import store from './store';
 import './styles/App.css';
 import setAuthToken from './middleware/setAuthToken';
 import { loadUser } from './actions/auth';
+import Account from './pages/Account';
 
 if(localStorage.getItem('token')){
   setAuthToken(localStorage.getItem('token'));
@@ -26,6 +27,7 @@ const App = () => {
         <Route exact path="/" component={ Landing } />
         <Route exact path="/register" component={ Register }/>
         <Route exact path="/login" component={ Login }/>
+        <Route exact path="/account" component={ Account }/>
         </Switch>
       </Router>
     </Provider>
