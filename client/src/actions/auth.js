@@ -7,8 +7,12 @@ import {
     USER_LOADED 
 } from './constants';
 import axios from 'axios';
+import setAuthToken from '../middleware/setAuthToken';
 
 export const loadUser = () => async dispatch => {
+    if(localStorage.getItem('token')){
+        setAuthToken(localStorage.getItem('token'));
+    }
     try {
         const res = await axios.get('http://localhost:5000/api/users');
         dispatch({
@@ -27,7 +31,9 @@ export const registerUser = ( name,last_name,username,email,password ) => async 
     try {
         const body = JSON.stringify({ name,last_name,username,email,password });
         const config = {
-            'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
         const res = await axios.post('http://localhost:5000/api/users',body,config);
         dispatch({
@@ -46,10 +52,12 @@ export const registerUser = ( name,last_name,username,email,password ) => async 
 export const loginUser = ( email,password ) => async dispatch => {
     try {
         const config = {
-            'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json'
+            }
         };
         const body = JSON.stringify({ email,password });
-        const res = await axios.post('http://localhost:5000/api/users/login',body,config);
+        const res = await axios.post('http://localhost:5000/api/users/login',config,body);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
