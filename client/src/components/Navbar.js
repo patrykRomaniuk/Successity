@@ -1,8 +1,9 @@
 import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
+import { logOut } from '../actions/auth';
 import { connect } from 'react-redux';
 
-const Navbar = ({ auth: { isAuthenticated } }) => {
+const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
     
     const [ isSidebar,setSidebar ] = useState(false);
     /* style={{
@@ -40,6 +41,7 @@ const Navbar = ({ auth: { isAuthenticated } }) => {
                 </Link>
 
                 <Link to="/login" className="href__style__remove nav__link"
+                onClick={() => logOut()}
                 style={{ display: isAuthenticated ? 'block' : 'none' }}>
                     Log Out <i className="fas fa-sign-out-alt"></i>
                 </Link>
@@ -95,7 +97,10 @@ const Navbar = ({ auth: { isAuthenticated } }) => {
                     <Link 
                     className="sidebar-link" 
                     to="/login"
-                    onClick={() => setSidebar(false)}
+                    onClick={() => {
+                        logOut();
+                        setSidebar(false)
+                    }}
                     style={{ display: isAuthenticated ? 'block' : 'none' }}
                     >
                         Log Out
@@ -127,4 +132,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, { logOut })(Navbar);
