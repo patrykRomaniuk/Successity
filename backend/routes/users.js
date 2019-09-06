@@ -13,7 +13,7 @@ router.get(
     auth,
     async(req,res) => {
         try {
-            let user = await User.findById(req.user.id);
+            let user = await User.findById(req.user.id).select('-password');
             res.json(user);
         } catch (error) {
             console.log(error.message);
@@ -26,7 +26,7 @@ router.get(
     '/users',
     async(req,res) => {
         try {
-            let users = await User.find();
+            let users = await User.find().select('-password');
             res.json(users);
         } catch (error) {
             console.log(error.message);
