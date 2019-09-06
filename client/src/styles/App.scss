@@ -63,12 +63,14 @@ html{
                     width: 70%;
                 }
                 .nav__link{
-                    display: none;
                     font-size: 1em;
                     transition: border .2s ease-in-out;
+                    @media(max-width: 1024px){
+                        display: none !important;
+                    }
                     @media(min-width: 1024px){
                         font-size: 1.5em;
-                        display: block;
+                        display: flex;
                     }
                     &:hover{
                         color: #201414;

@@ -99,16 +99,23 @@ html body .main__nav .nav-links {
 }
 
 html body .main__nav .nav-links .nav__link {
-  display: none;
   font-size: 1em;
   -webkit-transition: border .2s ease-in-out;
   transition: border .2s ease-in-out;
 }
 
+@media (max-width: 1024px) {
+  html body .main__nav .nav-links .nav__link {
+    display: none !important;
+  }
+}
+
 @media (min-width: 1024px) {
   html body .main__nav .nav-links .nav__link {
     font-size: 1.5em;
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 
