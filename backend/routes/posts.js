@@ -19,7 +19,7 @@ router.get(
 )
 
 router.get(
-    '/:post_id',
+    '/post/:post_id',
     async(req,res) => {
         try {
             let post = await Post.findById(req.params.post_id);
@@ -27,6 +27,21 @@ router.get(
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.get(
+    '/posts/user_posts',
+    auth,
+    async(req,res) => {
+        try {
+            let posts = await Post.find();
+            let userPosts = posts.filter(post => post.user.toString() === req.user.id);
+            res.json(userPosts);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error" });
         }
     }
 )
