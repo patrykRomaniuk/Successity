@@ -7,7 +7,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
     
     const [ isSidebar,setSidebar ] = useState(false);
     /* style={{
-                    display: isSidebar ? 'block' : 'none',
+                    display: isSidebar ? 'flex' : 'none',
                     zIndex: isSidebar ? '2' : '-1'
                 }}*/
     return (
@@ -24,30 +24,30 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                 <Link 
                 to="/login" 
                 className="href__style__remove nav__link"
-                 style={{ display: isAuthenticated ? 'none' : 'block' }}>
+                 style={{ display: isAuthenticated ? 'none' : 'flex' }}>
                      Zaloguj się
                 </Link>
 
                 <Link 
                 to="/register" 
                 className="href__style__remove nav__link"
-                style={{ display: isAuthenticated ? 'none' : 'block' }}>
+                style={{ display: isAuthenticated ? 'none' : 'flex' }}>
                     Załóż konto
                 </Link>
 
                 <Link to="/account" className="href__style__remove nav__link"
-                 style={{ display: isAuthenticated ? 'block' : 'none' }}>
+                 style={{ display: isAuthenticated ? 'flex' : 'none' }}>
                     Profil <i className="fas fa-user"></i>
                 </Link>
 
                 <Link to="/account" className="href__style__remove nav__link"
-                 style={{ display: isAuthenticated ? 'block' : 'none' }}>
+                 style={{ display: isAuthenticated ? 'flex' : 'none' }}>
                     Zadaj pytanie <i className="fas fa-edit"></i>
                 </Link>
 
                 <Link to="/login" className="href__style__remove nav__link"
                 onClick={() => logOut()}
-                style={{ display: isAuthenticated ? 'block' : 'none' }}>
+                style={{ display: isAuthenticated ? 'flex' : 'none' }}>
                     Wyloguj się <i className="fas fa-sign-out-alt"></i>
                 </Link>
                 
@@ -62,7 +62,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
             <div 
             className="sidebar-wrapper"
             style={{
-                display: isSidebar ? 'block' : 'none',
+                display: isSidebar ? 'flex' : 'none',
                 transition: 'width 1.5s ease-in-out',
                 width: isSidebar ? '100vw' : '0vw',
                 zIndex: isSidebar ? '2' : '-1'
@@ -94,7 +94,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     className="sidebar-link" 
                     to="/account"
                     onClick={() => setSidebar(false)}
-                    style={{ display: isAuthenticated ? 'block' : 'none' }}
+                    style={{ display: isAuthenticated ? 'flex' : 'none' }}
                     >
                         Profil
                     </Link>
@@ -106,7 +106,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                         logOut();
                         setSidebar(false)
                     }}
-                    style={{ display: isAuthenticated ? 'block' : 'none' }}
+                    style={{ display: isAuthenticated ? 'flex' : 'none' }}
                     >
                         Wyloguj się
                     </Link>
@@ -115,7 +115,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     className="sidebar-link" 
                     to="/login"
                     onClick={() => setSidebar(false)}
-                    style={{ display: isAuthenticated ? 'none' : 'block' }}
+                    style={{ display: isAuthenticated ? 'none' : 'flex' }}
                     >
                         Zaloguj się
                     </Link>
@@ -124,7 +124,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     className="sidebar-link" 
                     to="/register"
                     onClick={() => setSidebar(false)}
-                    style={{ display: isAuthenticated ? 'none' : 'block' }}
+                    style={{ display: isAuthenticated ? 'none' : 'flex' }}
                     >Załóż konto
                     </Link>
                 </div>
