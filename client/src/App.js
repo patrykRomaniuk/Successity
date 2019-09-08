@@ -10,6 +10,7 @@ import './styles/App.css';
 import setAuthToken from './middleware/setAuthToken';
 import { loadUser } from './actions/auth';
 import Account from './pages/Account';
+import AddPost from './pages/AddPost';
 
 if(localStorage.getItem('token')){
   setAuthToken(localStorage.getItem('token'));
@@ -28,6 +29,7 @@ const App = () => {
         <Route exact path="/register" component={ Register }/>
         <Route exact path="/login" component={ Login }/>
         <Route exact path="/account" component={ Account }/>
+        <Route exact path="/add-post" component={ AddPost }/>
         </Switch>
       </Router>
     </Provider>
