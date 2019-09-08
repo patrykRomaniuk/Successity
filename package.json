@@ -1,0 +1,12 @@
+{
+  "name": "chatglass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "forever": "cd backend && npm run forever"
+  },
+  "author": "",
+  "license": "ISC"
+}
