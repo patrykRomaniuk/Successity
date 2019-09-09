@@ -13,6 +13,10 @@ html{
             align-items: center;
         }
 
+        .small_margin_right{
+            margin-right: 10px;
+        }
+
         .p__size{
             font-size: 1.2em;
             @media(min-width: 1024px){
@@ -51,7 +55,11 @@ html{
             width: 100vw;
             height: 10vh;
             .logo-wrapper{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
                 width: 30%;
+                height: 100%;
             }
             .nav-links{
                 height: 100%;

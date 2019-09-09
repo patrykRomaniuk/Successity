@@ -22,6 +22,10 @@ html body .flex__center {
           align-items: center;
 }
 
+html body .small_margin_right {
+  margin-right: 10px;
+}
+
 html body .p__size {
   font-size: 1.2em;
 }
@@ -76,7 +80,17 @@ html body .main__nav {
 }
 
 html body .main__nav .logo-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 30%;
+  height: 100%;
 }
 
 html body .main__nav .nav-links {
