@@ -10,6 +10,7 @@ import setAuthToken from './middleware/setAuthToken';
 import { loadUser } from './actions/auth';
 import Account from './pages/Account';
 import AddPost from './pages/AddPost';
+import Topics from './pages/Topics';
 import './styles/App.css';
 import './styles/AddPostPage.css'
 import './styles/RegisterPage.css'
@@ -32,6 +33,7 @@ const App = () => {
         <Route exact path="/login" component={ Login }/>
         <Route exact path="/account" component={ Account }/>
         <Route exact path="/add-post" component={ AddPost }/>
+        <Route exact path="/topics" component={ Topics }/>
         </Switch>
       </Router>
     </Provider>
