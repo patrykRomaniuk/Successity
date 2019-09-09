@@ -1,0 +1,91 @@
+.make-post-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+    width: 100vw;
+    .tips-wrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .tips{
+            margin-left: 0;
+            padding-left: 0;
+            text-decoration: none;
+            .tip-item{
+                list-style: none;
+            }
+        }
+        form{
+            width: 80%;
+            @media(min-width: 1024px){
+                width: 30%;
+            }
+            textarea{
+                width: 100%;
+                height: 77px;
+                resize: none;
+            }
+            .add-post-button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                width: 30%;
+                height: 20%;
+                color: #f4f4f4;
+                transition: background .2s ease-in-out;
+                padding: 5px 0;
+                &:hover{
+                    cursor: pointer;
+                    background: #39c6f1;
+                }
+            }
+        }
+    }
+
+
+    .output{
+        width: 90%;
+        min-height: 20%;
+        display: grid;
+        border: solid 1px #39c6f1;
+        grid-template-columns: 0% 20% 80%;
+        @media(min-width: 1024px){
+            grid-template-columns: 20% 20% 60%;
+        }
+        img{
+            display: none;
+            @media(min-width: 1024px){
+                width: 100px;
+                height: 100px;
+            }
+        }
+        .text-date{
+            flex-direction: column;
+           /* .text-date__username{
+
+            }*/
+        }
+        .post__buttons-wrapper{
+            display: grid;
+            width: 100%;
+            grid-template-areas: "post post"
+                                 "viewComment newPost";
+            .post{
+                grid-area: post;
+                width: 100%;
+            }
+            .new-post{
+                grid-area: newPost;
+            }
+            .view-comment{
+                grid-area: viewComment;
+            }
+        }
+    }
+}

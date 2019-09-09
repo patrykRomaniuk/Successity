@@ -1,0 +1,152 @@
+.make-post-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 90vh;
+  width: 100vw;
+}
+
+.make-post-wrapper .tips-wrapper {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.make-post-wrapper .tips-wrapper .tips {
+  margin-left: 0;
+  padding-left: 0;
+  text-decoration: none;
+}
+
+.make-post-wrapper .tips-wrapper .tips .tip-item {
+  list-style: none;
+}
+
+.make-post-wrapper .tips-wrapper form {
+  width: 80%;
+}
+
+@media (min-width: 1024px) {
+  .make-post-wrapper .tips-wrapper form {
+    width: 30%;
+  }
+}
+
+.make-post-wrapper .tips-wrapper form textarea {
+  width: 100%;
+  height: 77px;
+  resize: none;
+}
+
+.make-post-wrapper .tips-wrapper form .add-post-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 30%;
+  height: 20%;
+  color: #f4f4f4;
+  -webkit-transition: background .2s ease-in-out;
+  transition: background .2s ease-in-out;
+  padding: 5px 0;
+}
+
+.make-post-wrapper .tips-wrapper form .add-post-button:hover {
+  cursor: pointer;
+  background: #39c6f1;
+}
+
+.make-post-wrapper .output {
+  width: 90%;
+  min-height: 20%;
+  display: -ms-grid;
+  display: grid;
+  border: solid 1px #39c6f1;
+  -ms-grid-columns: 0% 20% 80%;
+      grid-template-columns: 0% 20% 80%;
+}
+
+@media (min-width: 1024px) {
+  .make-post-wrapper .output {
+    -ms-grid-columns: 20% 20% 60%;
+        grid-template-columns: 20% 20% 60%;
+  }
+}
+
+.make-post-wrapper .output img {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .make-post-wrapper .output img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.make-post-wrapper .output .text-date {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* .text-date__username{
+
+            }*/
+}
+
+.make-post-wrapper .output .post__buttons-wrapper {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+      grid-template-areas: "post post" "viewComment newPost";
+}
+
+.make-post-wrapper .output .post__buttons-wrapper .post {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: post;
+  width: 100%;
+}
+
+.make-post-wrapper .output .post__buttons-wrapper .new-post {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: newPost;
+}
+
+.make-post-wrapper .output .post__buttons-wrapper .view-comment {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: viewComment;
+}
+/*# sourceMappingURL=AddPostPage.css.map */
