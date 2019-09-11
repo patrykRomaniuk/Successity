@@ -16,7 +16,31 @@ router.get(
             return res.status(500).json({ msg: "Server Error" });
         }
     }
-)
+);
+
+router.get(
+    '/latest',
+    async(req,res) => {
+        try {
+            let posts = await Post.find();
+
+            console.log(posts)
+
+            let changedPosts = posts.filter(post => post.date)
+
+            let searchForDates = posts
+            .filter(post => post.date)
+            .sort((a,b) => a.valueOf() - b.valueOf());
+
+            console.log(changedPosts)
+            
+            res.json(changedPosts);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
 
 router.get(
     '/post/:post_id',
@@ -70,6 +94,24 @@ router.post(
             });
             const registeredPost = await post.save();
             res.json(registeredPost);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.post(
+    '/search_post',
+    [
+        check('searchValue', "Input must be fulfilled")
+    ],
+    async(req,res) => {
+        try {
+            let { searchValue } = req.body;
+            let posts = await Post.find();
+            let searchTextPosts = posts.filter(post => post.text.includes(searchValue))
+            res.json(searchTextPosts);
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
