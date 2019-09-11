@@ -12,8 +12,9 @@ import Account from './pages/Account';
 import AddPost from './pages/AddPost';
 import Topics from './pages/Topics';
 import './styles/App.css';
-import './styles/AddPostPage.css'
-import './styles/RegisterPage.css'
+import './styles/AddPostPage.css';
+import './styles/RegisterPage.css';
+import './styles/Topics.css';
 
 if(localStorage.getItem('token')){
   setAuthToken(localStorage.getItem('token'));
