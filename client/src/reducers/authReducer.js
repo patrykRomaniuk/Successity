@@ -46,6 +46,8 @@ const auth = (state = initialState, action) => {
             return {
                 ...state,
                 ...payload,
+                post: null,
+                posts: null,
                 isAuthenticated: false,
                 isLoading: true
             }
