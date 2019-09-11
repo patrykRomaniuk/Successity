@@ -2,6 +2,7 @@ import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logOut } from '../actions/auth';
 import { connect } from 'react-redux';
+import chatGlassIcon from '../chatGlassIcon.png';
 
 const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
     
@@ -13,13 +14,21 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
     return (
         <nav className="main__nav">
 
-            <div className="logo-wrapper">LOGO</div>
+            <div className="logo-wrapper">
+                <Link to="/">
+                    <img src={ chatGlassIcon } alt=""/>
+                </Link>
+            </div>
 
             <div className="nav-links">
 
-                <Link to="/users" className="href__style__remove nav__link">Użytkownicy</Link>
+                <Link to="/users" className="href__style__remove nav__link">
+                    Użytkownicy <i className="fas fa-users"></i>
+                </Link>
 
-                <Link to="/topics" className="href__style__remove nav__link">Tematy</Link>
+                <Link to="/topics" className="href__style__remove nav__link">
+                    Tematy   <i className="fas fa-comments"></i>
+                </Link>
 
                 <Link 
                 to="/login" 
@@ -40,7 +49,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     Profil <i className="fas fa-user"></i>
                 </Link>
 
-                <Link to="/account" className="href__style__remove nav__link"
+                <Link to="/add-post" className="href__style__remove nav__link"
                  style={{ display: isAuthenticated ? 'flex' : 'none' }}>
                     Zadaj pytanie <i className="fas fa-edit"></i>
                 </Link>
