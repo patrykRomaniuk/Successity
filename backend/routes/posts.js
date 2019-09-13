@@ -19,6 +19,26 @@ router.get(
 );
 
 router.get(
+    '/posts/most_liked',
+    async(req,res) => {
+        try {
+            let posts = await Post.find();
+            let sortPostsByLikes = posts
+            .filter(post => post.likes.length)
+            .sort((a,b) => a - b,0)
+            .filter(post => post)
+
+            console.log(sortPostsByLikes)
+
+            res.json(sortPostsByLikes);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+)
+
+router.get(
     '/latest',
     async(req,res) => {
         try {
@@ -26,21 +46,19 @@ router.get(
 
             console.log(posts)
 
-            let changedPosts = posts.filter(post => post.date)
-
-            let searchForDates = posts
+            let sortPostsByDate = posts
             .filter(post => post.date)
-            .sort((a,b) => a.valueOf() - b.valueOf());
-
-            console.log(changedPosts)
+            .sort((a,b) => a - b,0);
             
-            res.json(changedPosts);
+            res.json(sortPostsByDate);
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
         }
     }
 );
+
+
 
 router.get(
     '/post/:post_id',
@@ -110,8 +128,13 @@ router.post(
         try {
             let { searchValue } = req.body;
             let posts = await Post.find();
-            let searchTextPosts = posts.filter(post => post.text.includes(searchValue))
-            res.json(searchTextPosts);
+            if(searchValue === "" || searchValue === null){
+                let searchTextPosts = posts;
+                res.json(searchTextPosts);
+            } else {
+                let searchTextPosts = posts.filter(post => post.text.includes(searchValue))
+                res.json(searchTextPosts);
+            }
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
@@ -128,7 +151,7 @@ router.put(
             if(!post){
                 return res.status(401).json({ msg: "There is not post that, you want like" });
             }
-            if(post.likes.filter(like => like.user.toString()).length > 0){
+            if(post.likes.filter(like => like.user.toString() === req.user.id).length > 0){
                 return res.status(400).json({ msg: "Post Already Liked" });
             }
             post.likes.unshift({ user: req.user.id });
