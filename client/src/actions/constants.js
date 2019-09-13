@@ -14,3 +14,4 @@ export const GET_POSTS = "GET_POSTS";
 export const GET_POST = "GET_POST";
 
 export const POST_CLEAR = "POST_CLEAR";
+export const SEARCH_TOPICS = "SEARCH_TOPICS";
