@@ -42,15 +42,8 @@ router.get(
     '/latest',
     async(req,res) => {
         try {
-            let posts = await Post.find();
-
-            console.log(posts)
-
-            let sortPostsByDate = posts
-            .filter(post => post.date)
-            .sort((a,b) => a - b,0);
-            
-            res.json(sortPostsByDate);
+            let posts = await Post.find().sort({ date: -1 });
+            res.json(posts);
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
