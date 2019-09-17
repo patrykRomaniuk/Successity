@@ -16,3 +16,4 @@ export const SEARCH_TOPICS = "SEARCH_TOPICS";
 export const GET_USERS = "GET_USERS";
 export const MOST_LIKED_POSTS = "MOST_LIKED_POSTS";
 export const ADD_LIKE = "ADD_LIKE";
+export const LATEST_POSTS = "LATEST_POSTS";
