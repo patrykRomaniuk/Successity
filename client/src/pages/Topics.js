@@ -1,15 +1,17 @@
 import React,{ useEffect,useState } from 'react';
-import { getPosts,searchTopics } from '../actions/posts';
+import { getPosts,getLatestPosts,searchTopics } from '../actions/posts';
 import { connect } from 'react-redux';
 import TopicPostsWrapper from './LoopHandler/TopicPostsWrapper';
 
-const Topics = ({ getPosts,searchTopics,post }) => {
+const Topics = ({ getPosts,getLatestPosts,searchTopics,post }) => {
     useEffect(() => {
-        getPosts();
-    },[getPosts]);
+        getLatestPosts();
+    },[getLatestPosts]);
 
     const [ searchValue,setSearchValue ] = useState('');
-   
+    const [ isOldest,setOldest ] = useState(false);
+    const [ isLatest,setLatest ] = useState(true);
+
     const onChange = e => {
         setSearchValue(e.target.value);
     }
@@ -18,8 +20,17 @@ const Topics = ({ getPosts,searchTopics,post }) => {
         if(searchValue !== '' && searchValue !== null){
             searchTopics(searchValue);
         } else {
-            getPosts();
+            getLatestPosts();
         }
+    }
+
+    const changeToOldestPosts = () => {
+        setOldest(!isOldest);
+        setLatest(false);
+    }
+
+    const changeToLatestPosts = () => {
+        setLatest(!isLatest);
     }
 
     return (
@@ -30,7 +41,10 @@ const Topics = ({ getPosts,searchTopics,post }) => {
                 </p>
                 <br/>
                 <div>
-                 <input type="checkbox" />
+                 <input 
+                 type="checkbox"
+                  onChange={() => changeToOldestPosts()}
+                  />
                  <p>Najnowsze</p>
                 </div>
                 <div>
@@ -61,4 +75,4 @@ const mapStateToProps = state => ({
     post: state.post
 });
 
-export default connect(mapStateToProps, { getPosts,searchTopics })(Topics);
+export default connect(mapStateToProps, { getPosts,searchTopics,getLatestPosts })(Topics);
