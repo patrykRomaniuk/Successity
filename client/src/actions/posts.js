@@ -5,7 +5,9 @@ import {
     REMOVE_POST,
     GET_POST,
     GET_POSTS,
-    POST_CLEAR
+    POST_CLEAR,
+    SEARCH_TOPICS,
+    ADD_LIKE
 } from './constants';
 import axios from 'axios';
 
@@ -48,7 +50,7 @@ export const getPosts = () => async dispatch => {
     }
 }
 
-export const makePost = (text) => async dispatch => {
+export const makePost = text => async dispatch => {
     try {
         const config = {
             headers: {
@@ -65,9 +67,42 @@ export const makePost = (text) => async dispatch => {
         console.log(error.message);
         dispatch({ type: POST_ERROR });
     }
+};
+
+export const searchTopics = searchValue => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ searchValue });
+        const res = await axios.post('http://localhost:5000/api/posts/search_post',body,config);
+        dispatch({
+            type: SEARCH_TOPICS,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR })
+    }
+};
+
+export const addLike = like_id =>  async dispatch => {
+    try {
+        const res = await axios.put(`http://localhost:5000/api/posts/likes/${like_id}`);
+        dispatch({
+            type: ADD_LIKE,
+            payload: res.data
+        });
+        dispatch(getPosts());
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR })
+    }
 }
 
-export const removePost = (post_id) => async dispatch => {
+export const removePost = post_id => async dispatch => {
     try {
         const res = await axios.delete(`http://localhost:5000/api/posts/${post_id}`);
         dispatch({
