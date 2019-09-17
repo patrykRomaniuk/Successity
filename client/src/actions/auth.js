@@ -5,7 +5,9 @@ import {
     LOGIN_FAIL,
     AUTH_ERROR,
     USER_LOADED,
-    LOG_OUT
+    LOG_OUT,
+    GET_USERS,
+    GET_USER_POSTS
 } from './constants';
 import axios from 'axios';
 import setAuthToken from '../middleware/setAuthToken';
@@ -25,6 +27,21 @@ export const loadUser = () => async dispatch => {
         dispatch({
             type: AUTH_ERROR
         });
+    }
+};
+
+export const getUsers = () => async dispatch => {
+    try {
+        const res = await axios.get('http://localhost:5000/api/users/users');
+        dispatch({
+            type: GET_USER_POSTS,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({
+            type: AUTH_ERROR
+        })
     }
 }
 
