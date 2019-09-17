@@ -7,6 +7,7 @@ import {
     GET_POSTS,
     POST_CLEAR,
     SEARCH_TOPICS,
+    LATEST_POSTS,
     ADD_LIKE
 } from './constants';
 import axios from 'axios';
@@ -34,6 +35,19 @@ export const getPost = (post_id) => async dispatch => {
     } catch (error) {
         console.log(error.message);
         dispatch({ type: POST_ERROR })
+    }
+}
+
+export const getLatestPosts = () =>  async dispatch => {
+    try {
+        const res = await axios.get('http://localhost:5000/api/posts/latest');
+        dispatch({
+            type: LATEST_POSTS,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR });
     }
 }
 
