@@ -6,6 +6,7 @@ import {
     GET_POST,
     REMOVE_POST,
     SEARCH_TOPICS,
+    LATEST_POSTS,
     POST_CLEAR
 } from '../actions/constants'
 
@@ -33,6 +34,7 @@ const post = (state = initialState,action) => {
                 post: payload
             }
         case GET_POSTS:
+        case LATEST_POSTS:
         case SEARCH_TOPICS:
             return {
                 ...state,
