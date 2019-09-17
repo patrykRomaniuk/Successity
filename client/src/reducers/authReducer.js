@@ -5,7 +5,8 @@ import {
     LOGIN_SUCCESS,
     AUTH_ERROR,
     USER_LOADED,
-    LOG_OUT
+    LOG_OUT,
+    GET_USERS
 } from '../actions/constants';
 
 const initialState = {
@@ -20,6 +21,12 @@ const initialState = {
 const auth = (state = initialState, action) => {
     const { type,payload } = action;
     switch(type){
+        case GET_USERS:
+            return {
+                ...state,
+                ...payload,
+                users: payload
+            }
         case USER_LOADED:
             localStorage.getItem('token');
             return {
