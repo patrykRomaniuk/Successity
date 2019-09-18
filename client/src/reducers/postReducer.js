@@ -5,6 +5,7 @@ import {
     GET_POSTS,
     GET_POST,
     REMOVE_POST,
+    MOST_LIKED_POSTS,
     SEARCH_TOPICS,
     LATEST_POSTS,
     POST_CLEAR
@@ -36,6 +37,7 @@ const post = (state = initialState,action) => {
         case GET_POSTS:
         case LATEST_POSTS:
         case SEARCH_TOPICS:
+        case MOST_LIKED_POSTS:
             return {
                 ...state,
                 isLoading: false,
