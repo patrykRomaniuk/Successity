@@ -72,7 +72,7 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 30%;
+  width: 101%;
   height: 20%;
   color: #f4f4f4;
   -webkit-transition: background .2s ease-in-out;
@@ -83,6 +83,12 @@
 .make-post-wrapper .tips-wrapper form .add-post-button:hover {
   cursor: pointer;
   background: #39c6f1;
+}
+
+@media (min-width: 1024px) {
+  .make-post-wrapper .tips-wrapper form .add-post-button {
+    width: 30%;
+  }
 }
 
 .make-post-wrapper .output {

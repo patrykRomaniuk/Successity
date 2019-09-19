@@ -35,7 +35,7 @@
                 justify-content: center;
                 align-items: center;
                 flex-wrap: wrap;
-                width: 30%;
+                width: 101%;
                 height: 20%;
                 color: #f4f4f4;
                 transition: background .2s ease-in-out;
@@ -43,6 +43,9 @@
                 &:hover{
                     cursor: pointer;
                     background: #39c6f1;
+                }
+                @media(min-width: 1024px){
+                    width: 30%;
                 }
             }
         }
