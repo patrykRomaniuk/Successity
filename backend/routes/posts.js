@@ -138,7 +138,9 @@ router.post(
                 let searchTextPosts = posts;
                 res.json(searchTextPosts);
             } else {
-                let searchTextPosts = posts.filter(post => post.text.includes(searchValue))
+                let searchValueToLowerLetter = searchValue.toLowerCase().split(' ').join('');
+                let searchTextPosts = posts
+                .filter(post => post.text.toLowerCase().split(' ').join('').includes(searchValueToLowerLetter))
                 res.json(searchTextPosts);
             }
         } catch (error) {
