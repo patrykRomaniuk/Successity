@@ -7,10 +7,7 @@ import chatGlassIcon from '../chatGlassIcon.png';
 const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
     
     const [ isSidebar,setSidebar ] = useState(false);
-    /* style={{
-                    display: isSidebar ? 'flex' : 'none',
-                    zIndex: isSidebar ? '2' : '-1'
-                }}*/
+    
     return (
         <nav className="main__nav">
 
@@ -71,10 +68,9 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
             <div 
             className="sidebar-wrapper"
             style={{
-                display: isSidebar ? 'flex' : 'none',
-                transition: 'width 1.5s ease-in-out',
-                width: isSidebar ? '100vw' : '0vw',
-                zIndex: isSidebar ? '2' : '-1'
+                transition: 'width .4s ease-in-out',
+                width: isSidebar ? '103vw' : '0vw',
+                zIndex: isSidebar ? '3' : '2'
             }}
             >
                 <div className="close-sidebar-wrapper">
