@@ -2,9 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { addLike } from '../../actions/posts';
+import {
+    addLike,
+    getPosts,
+    getLatestPosts,
+    getMostLikedPosts,
+    searchTopics,
+    getMostCommented,
+    getPost
+} from '../../actions/posts';
 
-const TopicPost = ({ post,addLike }) => {
+const TopicPost = ({ post,addLike,isOldest,isLatest,isMostLikedPosts,isMostCommented }) => {
     return (
         <div className="topic-wrapper">
 
@@ -26,17 +34,24 @@ const TopicPost = ({ post,addLike }) => {
                     <div>                  
                         <p 
                         className="font__p font__bold p__size"         
-                        onClick={() => addLike(post._id)}
+                        onClick={() => {
+                            addLike(post._id,isOldest,isLatest,isMostCommented,isMostLikedPosts);
+                        }}
                         >
                             <i className="far fa-thumbs-up"></i>
                             { post.likes.length }
                         </p>
+                        <p>
+                        <i className="far fa-thumbs-down"></i>
+                        </p>
                     </div>
-                    
-                    <p>
-                        <i className="far fa-comment"></i>
-                        { post.comments.length }
-                    </p>
+
+                    <div>
+                         <p>
+                            <i className="far fa-comment"></i>
+                            { post.comments.length }
+                        </p>
+                    </div>
 
                     <div>
                         <Link to={`/topics/topic/${post._id}`}>
