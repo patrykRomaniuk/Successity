@@ -12,6 +12,7 @@ import { loadUser } from './actions/auth';
 import Account from './pages/Account';
 import AddPost from './pages/AddPost';
 import Topics from './pages/Topics';
+import Users from './pages/Users';
 import './styles/App.css';
 import './styles/AddPostPage.css';
 import './styles/RegisterPage.css';
@@ -37,6 +38,7 @@ const App = () => {
         <Route exact path="/account" component={ Account }/>
         <Route exact path="/add-post" component={ AddPost }/>
         <Route exact path="/topics" component={ Topics }/>
+        <Route exact path="/users" component={ Users }/>
         <Route exact path="/topics/topic/:id" component={ PostPage } />
         </Switch>
       </Router>
