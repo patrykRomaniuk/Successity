@@ -23,6 +23,20 @@ router.get(
 );
 
 router.get(
+    '/user/:user_email',
+    async(req,res) => {
+        try {
+            let email = req.params.user_email;
+            let user = await User.findOne({ email });
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+)
+
+router.get(
     '/users',
     async(req,res) => {
         try {
