@@ -55,36 +55,48 @@
     .output{
         width: 90%;
         min-height: 20%;
-        display: grid;
+        display: flex;
+        flex-direction: column;
         border: solid 1px #39c6f1;
-        grid-template-columns: 0% 20% 80%;
-        @media(min-width: 1024px){
-            grid-template-columns: 20% 20% 60%;
-        }
-        img{
-            display: none;
-            @media(min-width: 1024px){
-                width: 100px;
-                height: 100px;
-            }
-        }
-        .text-date{
-            flex-direction: column;
-        }
-        .post__buttons-wrapper{
-            display: grid;
+        .output-header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            grid-template-areas: "post post"
-                                 "viewComment newPost";
-            .post{
-                grid-area: post;
-                width: 100%;
-            }
-            .new-post{
-                grid-area: newPost;
-            }
-            .view-comment{
-                grid-area: viewComment;
+            height: 40%;
+            font-size: 2em;
+        }
+        .output-buttons-wrapper{
+            height: 60%;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            .output-buttons{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 60%;
+                @media(min-width: 1024px){
+                    align-items: flex-end;
+                    justify-content: space-around;
+                    flex-direction: row;
+                }
+                .output-button{
+                    text-align: center;
+                    color: #f4f4f4;
+                    margin: 1em;
+                    transition: background .3s ease-in-out; 
+                    padding: 0 .5em;
+                    width:  100%;
+                    @media(min-width: 1024px){
+                        width: 400px;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                        background: #39c6f1;
+                    }
+                }
             }
         }
     }

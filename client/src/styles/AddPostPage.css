@@ -94,62 +94,92 @@
 .make-post-wrapper .output {
   width: 90%;
   min-height: 20%;
-  display: -ms-grid;
-  display: grid;
-  border: solid 1px #39c6f1;
-  -ms-grid-columns: 0% 20% 80%;
-      grid-template-columns: 0% 20% 80%;
-}
-
-@media (min-width: 1024px) {
-  .make-post-wrapper .output {
-    -ms-grid-columns: 20% 20% 60%;
-        grid-template-columns: 20% 20% 60%;
-  }
-}
-
-.make-post-wrapper .output img {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .make-post-wrapper .output img {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-.make-post-wrapper .output .text-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  border: solid 1px #39c6f1;
 }
 
-.make-post-wrapper .output .post__buttons-wrapper {
-  display: -ms-grid;
-  display: grid;
+.make-post-wrapper .output .output-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-      grid-template-areas: "post post" "viewComment newPost";
+  height: 40%;
+  font-size: 2em;
 }
 
-.make-post-wrapper .output .post__buttons-wrapper .post {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: post;
+.make-post-wrapper .output .output-buttons-wrapper {
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.make-post-wrapper .output .output-buttons-wrapper .output-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 60%;
+}
+
+@media (min-width: 1024px) {
+  .make-post-wrapper .output .output-buttons-wrapper .output-buttons {
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.make-post-wrapper .output .output-buttons-wrapper .output-buttons .output-button {
+  text-align: center;
+  color: #f4f4f4;
+  margin: 1em;
+  -webkit-transition: background .3s ease-in-out;
+  transition: background .3s ease-in-out;
+  padding: 0 .5em;
   width: 100%;
 }
 
-.make-post-wrapper .output .post__buttons-wrapper .new-post {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: newPost;
+@media (min-width: 1024px) {
+  .make-post-wrapper .output .output-buttons-wrapper .output-buttons .output-button {
+    width: 400px;
+  }
 }
 
-.make-post-wrapper .output .post__buttons-wrapper .view-comment {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: viewComment;
+.make-post-wrapper .output .output-buttons-wrapper .output-buttons .output-button:hover {
+  cursor: pointer;
+  background: #39c6f1;
 }
 /*# sourceMappingURL=AddPostPage.css.map */
