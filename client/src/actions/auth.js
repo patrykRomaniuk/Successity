@@ -34,7 +34,7 @@ export const getUsers = () => async dispatch => {
     try {
         const res = await axios.get('http://localhost:5000/api/users/users');
         dispatch({
-            type: GET_USER_POSTS,
+            type: GET_USERS,
             payload: res.data
         });
     } catch (error) {
