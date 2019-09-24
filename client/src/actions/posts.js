@@ -130,17 +130,38 @@ export const searchTopics = searchValue => async dispatch => {
     }
 };
 
-export const addLike = like_id =>  async dispatch => {
+export const addLike = (like_id,isOldest,isLatest,isMostCommented,isMostLiked) =>  async dispatch => {
     try {
         const res = await axios.put(`http://localhost:5000/api/posts/likes/${like_id}`);
         dispatch({
             type: ADD_LIKE,
             payload: res.data
         });
-        dispatch(getPosts());
+        if(isOldest){
+            dispatch(getPosts());
+        } else if(isLatest) {
+            dispatch(getLatestPosts());
+        } else if(isMostCommented){
+            dispatch(getMostCommented());
+        } else if (isMostLiked){
+            dispatch(getMostLikedPosts());
+        }
     } catch (error) {
         console.log(error.message);
         dispatch({ type: POST_ERROR })
+    }
+}
+
+export const removeLike = (post_id,like_id) => async dispatch => {
+    try {
+        const res = await axios.delete(`http://localhost:5000/api/posts/likes/${post_id}/${like_id}`);
+        dispatch({
+            type: REMOVE_LIKE,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR });
     }
 }
 
