@@ -10,10 +10,22 @@ import {
     LATEST_POSTS,
     MOST_LIKED_POSTS,
     MOST_COMMENTED,
+    MAKE_COMMENT,
     ADD_LIKE,
     REMOVE_LIKE
 } from './constants';
 import axios from 'axios';
+
+export const clearPost = () => async dispatch => {
+    try {
+        dispatch({
+            type: POST_CLEAR
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR });
+    }
+}
 
 export const getUserPosts = () => async dispatch => {
     try {
@@ -48,6 +60,7 @@ export const getLatestPosts = () =>  async dispatch => {
             type: LATEST_POSTS,
             payload: res.data
         });
+        dispatch(clearPost());
     } catch (error) {
         console.log(error.message);
         dispatch({ type: POST_ERROR });
@@ -111,6 +124,26 @@ export const makePost = text => async dispatch => {
         dispatch({ type: POST_ERROR });
     }
 };
+
+export const makeComment = (post_id,text) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ text })
+        const res = await axios.put(`http://localhost:5000/api/posts/comments/${post_id}`,body,config);
+        dispatch({
+            type: MAKE_COMMENT,
+            payload: res.data
+        });
+        dispatch(getPost(post_id));
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR });
+    }
+}
 
 export const searchTopics = searchValue => async dispatch => {
     try {
@@ -177,16 +210,5 @@ export const removePost = post_id => async dispatch => {
     } catch (error) {
         console.log(error.message);
         dispatch({ type: POST_ERROR })
-    }
-}
-
-export const clearPost = () => async dispatch => {
-    try {
-        dispatch({
-            type: POST_CLEAR
-        });
-    } catch (error) {
-        console.log(error.message);
-        dispatch({ type: POST_ERROR });
     }
 }
