@@ -10,7 +10,8 @@ import {
     LATEST_POSTS,
     MOST_LIKED_POSTS,
     MOST_COMMENTED,
-    ADD_LIKE
+    ADD_LIKE,
+    REMOVE_LIKE
 } from './constants';
 import axios from 'axios';
 
