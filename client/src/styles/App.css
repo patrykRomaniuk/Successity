@@ -22,6 +22,11 @@ html body .flex__center {
           align-items: center;
 }
 
+html body .all-page-wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
 html body .small_margin_right {
   margin-right: 10px;
 }
@@ -50,6 +55,10 @@ html body .font__bold {
 
 html body .font__p {
   font-family: 'Asap Condensed',sans-serif;
+}
+
+html body .white__color__font {
+  color: #f4f4f4;
 }
 
 html body .hamburger-bar {

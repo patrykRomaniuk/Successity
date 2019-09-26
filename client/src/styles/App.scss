@@ -12,6 +12,11 @@ html{
             justify-content: center;
             align-items: center;
         }
+        
+        .all-page-wrapper{
+            width: 100vw;
+            height: 100vh;
+        }
 
         .small_margin_right{
             margin-right: 10px;
@@ -38,6 +43,10 @@ html{
         
         .font__p{
             font-family: 'Asap Condensed',sans-serif;
+        }
+
+        .white__color__font{
+            color: #f4f4f4;
         }
 
         .hamburger-bar{
