@@ -1,15 +1,15 @@
 import React,{ useState } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect,Link } from 'react-router-dom';
 import { makePost,clearPost } from '../actions/posts';
-import Moment from 'react-moment';
 
-const AddPost = ({ makePost,clearPost,auth: { isAuthentictated },post }) => {
-    const [ postText,setPostText ] = useState('');
+const AddPost = ({ makePost,clearPost,auth: { isAuthenticated },post }) => {
 
-    if(isAuthentictated === false){
+    if(!isAuthenticated){
         return <Redirect to="/login"/>
     }
+
+    const [ postText,setPostText ] = useState('');
 
     const onChange = e => {
         setPostText(e.target.value);
@@ -33,8 +33,7 @@ const AddPost = ({ makePost,clearPost,auth: { isAuthentictated },post }) => {
 
     return (
         <div className="make-post-wrapper">
-
-            
+     
                 {
                 post.post === null 
                 ?
@@ -44,7 +43,7 @@ const AddPost = ({ makePost,clearPost,auth: { isAuthentictated },post }) => {
                         <i className="fas fa-check-circle small_margin_right"></i>
                         Porady jak szybciej otrzymać odpowiedź
                     </p>
-                    <br/>
+                <br/>
 
                 <ul className="tips">
                     <li className="tip-item">
@@ -67,13 +66,14 @@ const AddPost = ({ makePost,clearPost,auth: { isAuthentictated },post }) => {
                             Dwukrotnie sprawdź czy nie ma błędów
                         </p>
                     </li>
+
                     <li className="tip-item">
                         <p className="font__p">
                             <i className="fas fa-check small_margin_right"></i>
                             Zacznij swoje pytanie od "Co", "Dlaczego", "Jak", itp.
                         </p>
                     </li>
-                    </ul>
+                </ul>
 
                     <form onSubmit={e => onSubmit(e)}>
                         <textarea
@@ -93,34 +93,26 @@ const AddPost = ({ makePost,clearPost,auth: { isAuthentictated },post }) => {
                 :
                 (
                     <div className="output">
-                        <div className="flex__center">
-                            <img 
-                            className="output-image" 
-                            src={ post.post.avatar } 
-                            alt=""/>
+                            <div className="output-header">
+                                <p className="font__bold font__p app_color_font">POST ADDED</p>
+                            </div>
+                            <div className="output-buttons-wrapper">
+                                <div className="output-buttons">
+                                    <div 
+                                    className="new-post output-button app_color_background" 
+                                    onClick={() => clearPost()}>
+                                        <p className="p__size font__p">Add New Post</p>
+                                    </div>
+                                    <div className="view-comment output-button app_color_background">
+                                        <Link to="/topics" className="white__color__font" style={{ textDecoration: 'none' }}>
+                                            <p className="p__size font__p">
+                                                    View Posts
+                                            </p>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div className="text-date flex__center">
-
-                            <p className="text-date__username font__p font__bold">
-                                Username:{' '} { post.post.name }
-                            </p>
-                            
-                            <p className="text-date__date">
-                                <Moment format="YYYY/MM/DD HH:mm"></Moment>
-                            </p>
-                        </div>
-
-                        <div className="post__buttons-wrapper flex__center">
-                            <p className="post font__p">Text: { post.post.text }</p>
-                            <button className="new-post" onClick={() => clearPost()}>
-                                Add New Post
-                            </button>
-                            <button className="view-comment">
-                                View Comments
-                            </button>
-                        </div>
-                    </div>
                 )
             }
             </div>
