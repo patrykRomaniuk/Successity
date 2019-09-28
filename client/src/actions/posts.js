@@ -186,6 +186,20 @@ export const addLike = (like_id,isOldest,isLatest,isMostCommented,isMostLiked) =
     }
 }
 
+export const addLikePostPage = (like_id) => async dispatch => {
+    try {
+        const res = await axios.put(`http://localhost:5000/api/posts/likes/${like_id}`);
+        dispatch({
+            type: ADD_LIKE,
+            payload: res.data
+        });
+        dispatch(getPost(like_id));
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR })
+    }
+}
+
 export const removeLikeFromTopicPage = (post_id,like_id,isOldest,isLatest,isMostCommented,isMostLiked) => async dispatch => {
     try {
         const res = await axios.delete(`http://localhost:5000/api/posts/likes/${post_id}/${like_id}`);
@@ -202,6 +216,20 @@ export const removeLikeFromTopicPage = (post_id,like_id,isOldest,isLatest,isMost
         } else if (isMostLiked){
             dispatch(getMostLikedPosts());
         }
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR });
+    }
+}
+
+export const removeLikeFromPostPage = (post_id,like_id) => async dispatch => {
+    try {
+        const res = await axios.delete(`http://localhost:5000/api/posts/likes/${post_id}/${like_id}`);
+        dispatch({
+            type: REMOVE_LIKE,
+            payload: res.data
+        });
+        dispatch(getPost(post_id));
     } catch (error) {
         console.log(error.message);
         dispatch({ type: POST_ERROR });
