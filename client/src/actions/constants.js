@@ -20,3 +20,4 @@ export const LATEST_POSTS = "LATEST_POSTS";
 export const MOST_COMMENTED = "MOST_COMMENTED";
 export const REMOVE_LIKE = "REMOVE_LIKE";
 export const MAKE_COMMENT = "MAKE_COMMENT";
+export const SEARCH_USERS = "SEARCH_USERS";
