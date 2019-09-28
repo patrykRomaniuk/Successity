@@ -6,7 +6,8 @@ import {
     AUTH_ERROR,
     USER_LOADED,
     LOG_OUT,
-    GET_USERS
+    GET_USERS,
+    SEARCH_USERS
 } from '../actions/constants';
 
 const initialState = {
@@ -22,6 +23,7 @@ const auth = (state = initialState, action) => {
     const { type,payload } = action;
     switch(type){
         case GET_USERS:
+        case SEARCH_USERS:
             return {
                 ...state,
                 ...payload,
