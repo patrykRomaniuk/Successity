@@ -150,6 +150,29 @@ router.post(
             return res.status(500).json({ msg: "Server Error..." });
         }
     }
+);
+
+router.put(
+    '/',
+    [
+        check('searchValue','Search value is required').not().isEmpty()
+    ],
+    async(req,res) => {
+        try {
+            const { searchValue } = req.body;
+            let users = await await User.find();
+            if(searchValue !== '' && searchValue !== null){
+                const searchUsers = users.filter(user => 
+                    user.name.toLowerCase().split(' ').join('').includes(searchValue.toLowerCase()));
+                res.json(searchUsers);
+            } else {
+                res.json(users);
+            }
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
 )
 
 module.exports = router;
