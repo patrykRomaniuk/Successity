@@ -63,7 +63,7 @@ router.get(
     '/posts/most_commented',
     async(req,res) => {
         try {
-            let posts = await Post.find().sort({ comments: -1 });
+            let posts = await Post.find().sort({ comments: 1 });
             res.json(posts);
         } catch (error) {
             console.log(error.message);
