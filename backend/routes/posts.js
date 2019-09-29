@@ -92,6 +92,19 @@ router.get(
             return res.status(500).json({ msg: "Server Error" });
         }
     }
+);
+
+router.get(
+    '/posts/user_posts/posts/:user_id',
+    async(req,res) => {
+        try {
+            let posts = await Post.find({ user: req.params.user_id });
+            res.json(posts);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Errror..." });
+        }
+    }
 )
 
 router.post(
