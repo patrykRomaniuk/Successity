@@ -22,12 +22,8 @@ router.get(
     '/posts/most_liked',
     async(req,res) => {
         try {
-            let posts = await Post.find();
-            let sortPostsByLikes = posts
-            .filter(post => post.likes.length)
-            .sort((a,b) => a - b,0)
-            .filter(post => post)
-            res.json(sortPostsByLikes);
+            let posts = await Post.find().sort({ likes: -1 });
+            res.json(posts);
         } catch (error) {
             console.log(error.message);
             return res.status(500).json({ msg: "Server Error..." });
@@ -67,10 +63,7 @@ router.get(
     '/posts/most_commented',
     async(req,res) => {
         try {
-            let posts = await Post.find();
-            posts
-            .filter(post => post.comments.length)
-            .sort((a,b) => a - b,0);
+            let posts = await Post.find().sort({ comments: -1 });
             res.json(posts);
         } catch (error) {
             console.log(error.message);
