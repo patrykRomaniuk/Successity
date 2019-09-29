@@ -12,6 +12,7 @@ import {
     MOST_COMMENTED,
     MAKE_COMMENT,
     ADD_LIKE,
+    GET_POSTS_BY_USER_ID,
     REMOVE_LIKE
 } from './constants';
 import axios from 'axios';
@@ -61,6 +62,19 @@ export const getLatestPosts = () =>  async dispatch => {
             payload: res.data
         });
         dispatch(clearPost());
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR });
+    }
+}
+
+export const getUserPostsByUserId = (user_id) => async dispatch => {
+    try {
+        const res = await axios.get(`http://localhost:5000/api/posts/posts/user_posts/posts/${user_id}`);
+        dispatch({
+            type: GET_POSTS_BY_USER_ID,
+            payload: res.data
+        });
     } catch (error) {
         console.log(error.message);
         dispatch({ type: POST_ERROR });
