@@ -34,7 +34,21 @@ router.get(
             return res.status(500).json({ msg: "Server Error..." });
         }
     }
-)
+);
+
+router.get(
+    '/user/id/:user_id',
+    async(req,res) => {
+        try {
+            let id = req.params.user_id;
+            let user = await User.findById(id);
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
 
 router.get(
     '/users',
