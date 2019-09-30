@@ -1,11 +1,11 @@
 import React,{ useEffect,Fragment } from 'react';
-import { getUserPosts } from '../actions/posts';
+import { getUserPosts } from '../actions/users';
 import '../styles/Account.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import UserPostsWrapper from './LoopHandler/UserPostsWrapper';
 
-const Account = ({ getUserPosts,post,auth: { avatar,name,last_name,username,isAuthenticated } }) => {
+const Account = ({ getUserPosts,profilePosts,auth: { avatar,name,last_name,username,isAuthenticated } }) => {
     if(!isAuthenticated){
         return <Redirect to="/topics"/>
     }
@@ -37,7 +37,7 @@ const Account = ({ getUserPosts,post,auth: { avatar,name,last_name,username,isAu
             <div className="user-posts">
                 <header className="user-posts-header-wrapper app_color_background">
                      {
-                         post.post !== null || post.post !== []
+                        profilePosts !== null || profilePosts !== []
                          ?
                         (
                             <p className="user-posts-header font__p font__bold">
@@ -52,7 +52,7 @@ const Account = ({ getUserPosts,post,auth: { avatar,name,last_name,username,isAu
                         )
                      }
                 </header>
-                <UserPostsWrapper posts={post.post}/>
+                <UserPostsWrapper posts={profilePosts}/>
             </div>
         </div>
     )
@@ -60,7 +60,7 @@ const Account = ({ getUserPosts,post,auth: { avatar,name,last_name,username,isAu
 
 const mapStateToProps = state => ({
     auth: state.auth,
-    post: state.post
+    profilePosts: state.user.profilePosts
 });
 
 export default connect(mapStateToProps, { getUserPosts })(Account);
