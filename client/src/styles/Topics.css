@@ -1,0 +1,488 @@
+html {
+  overflow-x: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+textarea {
+  width: 50vw;
+  height: 77px;
+  resize: none;
+}
+
+@media (min-width: 1024px) {
+  textarea {
+    width: 30vw;
+  }
+}
+
+.main-post-wrapper {
+  margin-top: 10em;
+}
+
+.topics-header,
+.post-page-header,
+.users-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100vw;
+  margin-bottom: 2em;
+}
+
+.topics-header .topics-headline,
+.topics-header .users-headline,
+.post-page-header .topics-headline,
+.post-page-header .users-headline,
+.users-header .topics-headline,
+.users-header .users-headline {
+  font-size: 3em;
+}
+
+.topics-header .header-checkbox,
+.post-page-header .header-checkbox,
+.users-header .header-checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.topics-header .header-checkbox p:hover,
+.post-page-header .header-checkbox p:hover,
+.users-header .header-checkbox p:hover {
+  cursor: pointer;
+}
+
+.topics-header .search-topic-wrapper,
+.topics-header .search-user-wrapper,
+.post-page-header .search-topic-wrapper,
+.post-page-header .search-user-wrapper,
+.users-header .search-topic-wrapper,
+.users-header .search-user-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.topics-header .search-topic-wrapper .topic-search-button,
+.topics-header .search-topic-wrapper .user-search-button,
+.topics-header .search-user-wrapper .topic-search-button,
+.topics-header .search-user-wrapper .user-search-button,
+.post-page-header .search-topic-wrapper .topic-search-button,
+.post-page-header .search-topic-wrapper .user-search-button,
+.post-page-header .search-user-wrapper .topic-search-button,
+.post-page-header .search-user-wrapper .user-search-button,
+.users-header .search-topic-wrapper .topic-search-button,
+.users-header .search-topic-wrapper .user-search-button,
+.users-header .search-user-wrapper .topic-search-button,
+.users-header .search-user-wrapper .user-search-button {
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 50vw;
+  height: 45%;
+  color: #f4f4f4;
+  -webkit-transition: background .2s ease-in-out;
+  transition: background .2s ease-in-out;
+  padding: 5px 5px;
+}
+
+@media (min-width: 1024px) {
+  .topics-header .search-topic-wrapper .topic-search-button,
+  .topics-header .search-topic-wrapper .user-search-button,
+  .topics-header .search-user-wrapper .topic-search-button,
+  .topics-header .search-user-wrapper .user-search-button,
+  .post-page-header .search-topic-wrapper .topic-search-button,
+  .post-page-header .search-topic-wrapper .user-search-button,
+  .post-page-header .search-user-wrapper .topic-search-button,
+  .post-page-header .search-user-wrapper .user-search-button,
+  .users-header .search-topic-wrapper .topic-search-button,
+  .users-header .search-topic-wrapper .user-search-button,
+  .users-header .search-user-wrapper .topic-search-button,
+  .users-header .search-user-wrapper .user-search-button {
+    width: 30%;
+  }
+}
+
+.topics-header .search-topic-wrapper .topic-search-button:hover,
+.topics-header .search-topic-wrapper .user-search-button:hover,
+.topics-header .search-user-wrapper .topic-search-button:hover,
+.topics-header .search-user-wrapper .user-search-button:hover,
+.post-page-header .search-topic-wrapper .topic-search-button:hover,
+.post-page-header .search-topic-wrapper .user-search-button:hover,
+.post-page-header .search-user-wrapper .topic-search-button:hover,
+.post-page-header .search-user-wrapper .user-search-button:hover,
+.users-header .search-topic-wrapper .topic-search-button:hover,
+.users-header .search-topic-wrapper .user-search-button:hover,
+.users-header .search-user-wrapper .topic-search-button:hover,
+.users-header .search-user-wrapper .user-search-button:hover {
+  cursor: pointer;
+  background: #39c6f1;
+}
+
+.link-to-post-page-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 90px;
+  height: 42px;
+  border-radius: 10px;
+  -webkit-transition: background .3s ease-in-out;
+  transition: background .3s ease-in-out;
+}
+
+@media (min-width: 1024px) {
+  .link-to-post-page-button {
+    height: 50px;
+    width: 100px;
+  }
+}
+
+.link-to-post-page-button a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #f4f4f4;
+  text-decoration: none;
+}
+
+.link-to-post-page-button:hover {
+  cursor: pointer;
+  background: #39c6f1;
+}
+
+.comments-align-left {
+  width: 95vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.topics-wrapper,
+.main-post-wrapper,
+.users-wrapper {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.topics-wrapper .topic-wrapper,
+.main-post-wrapper .topic-wrapper,
+.users-wrapper .topic-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border: 1px solid #2a0909;
+  background: #fff;
+  width: 99%;
+  margin-bottom: .5em;
+  padding: 1em 0;
+}
+
+@media (min-width: 1024px) {
+  .topics-wrapper .topic-wrapper,
+  .main-post-wrapper .topic-wrapper,
+  .users-wrapper .topic-wrapper {
+    width: 92%;
+  }
+}
+
+.topics-wrapper .topic-wrapper .topic-avatar,
+.topics-wrapper .topic-wrapper .main-post-avatar,
+.main-post-wrapper .topic-wrapper .topic-avatar,
+.main-post-wrapper .topic-wrapper .main-post-avatar,
+.users-wrapper .topic-wrapper .topic-avatar,
+.users-wrapper .topic-wrapper .main-post-avatar {
+  width: 50px;
+  height: 50px;
+}
+
+@media (min-width: 1024px) {
+  .topics-wrapper .topic-wrapper .topic-avatar,
+  .topics-wrapper .topic-wrapper .main-post-avatar,
+  .main-post-wrapper .topic-wrapper .topic-avatar,
+  .main-post-wrapper .topic-wrapper .main-post-avatar,
+  .users-wrapper .topic-wrapper .topic-avatar,
+  .users-wrapper .topic-wrapper .main-post-avatar {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.topics-wrapper .topic-wrapper .topic-date,
+.topics-wrapper .topic-wrapper .main-post-date,
+.main-post-wrapper .topic-wrapper .topic-date,
+.main-post-wrapper .topic-wrapper .main-post-date,
+.users-wrapper .topic-wrapper .topic-date,
+.users-wrapper .topic-wrapper .main-post-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  font-size: .7em;
+}
+
+.topics-wrapper .topic-wrapper .topic-section,
+.topics-wrapper .topic-wrapper .main-post-section,
+.main-post-wrapper .topic-wrapper .topic-section,
+.main-post-wrapper .topic-wrapper .main-post-section,
+.users-wrapper .topic-wrapper .topic-section,
+.users-wrapper .topic-wrapper .main-post-section {
+  width: 60%;
+}
+
+.topics-wrapper .topic-wrapper .topic-section .topic-section-links,
+.topics-wrapper .topic-wrapper .topic-section .main-post-section-links,
+.topics-wrapper .topic-wrapper .main-post-section .topic-section-links,
+.topics-wrapper .topic-wrapper .main-post-section .main-post-section-links,
+.main-post-wrapper .topic-wrapper .topic-section .topic-section-links,
+.main-post-wrapper .topic-wrapper .topic-section .main-post-section-links,
+.main-post-wrapper .topic-wrapper .main-post-section .topic-section-links,
+.main-post-wrapper .topic-wrapper .main-post-section .main-post-section-links,
+.users-wrapper .topic-wrapper .topic-section .topic-section-links,
+.users-wrapper .topic-wrapper .topic-section .main-post-section-links,
+.users-wrapper .topic-wrapper .main-post-section .topic-section-links,
+.users-wrapper .topic-wrapper .main-post-section .main-post-section-links {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .topics-wrapper .topic-wrapper .topic-section .topic-section-links,
+  .topics-wrapper .topic-wrapper .topic-section .main-post-section-links,
+  .topics-wrapper .topic-wrapper .main-post-section .topic-section-links,
+  .topics-wrapper .topic-wrapper .main-post-section .main-post-section-links,
+  .main-post-wrapper .topic-wrapper .topic-section .topic-section-links,
+  .main-post-wrapper .topic-wrapper .topic-section .main-post-section-links,
+  .main-post-wrapper .topic-wrapper .main-post-section .topic-section-links,
+  .main-post-wrapper .topic-wrapper .main-post-section .main-post-section-links,
+  .users-wrapper .topic-wrapper .topic-section .topic-section-links,
+  .users-wrapper .topic-wrapper .topic-section .main-post-section-links,
+  .users-wrapper .topic-wrapper .main-post-section .topic-section-links,
+  .users-wrapper .topic-wrapper .main-post-section .main-post-section-links {
+    width: 40%;
+  }
+}
+
+.topics-wrapper .topic-wrapper .topic-section .topic-section-links .like-section,
+.topics-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section,
+.topics-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section,
+.topics-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section,
+.main-post-wrapper .topic-wrapper .topic-section .topic-section-links .like-section,
+.main-post-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section,
+.main-post-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section,
+.main-post-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section,
+.users-wrapper .topic-wrapper .topic-section .topic-section-links .like-section,
+.users-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section,
+.users-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section,
+.users-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.topics-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .likes-length-item,
+.topics-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .likes-length-item,
+.topics-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .likes-length-item,
+.topics-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .likes-length-item,
+.main-post-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .likes-length-item,
+.main-post-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .likes-length-item,
+.main-post-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .likes-length-item,
+.main-post-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .likes-length-item,
+.users-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .likes-length-item,
+.users-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .likes-length-item,
+.users-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .likes-length-item,
+.users-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .likes-length-item {
+  margin: .5em;
+}
+
+.topics-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .like-item,
+.topics-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .like-item,
+.topics-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .like-item,
+.topics-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .like-item,
+.main-post-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .like-item,
+.main-post-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .like-item,
+.main-post-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .like-item,
+.main-post-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .like-item,
+.users-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .like-item,
+.users-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .like-item,
+.users-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .like-item,
+.users-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .like-item {
+  margin: .5em;
+}
+
+.topics-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .like-item:hover,
+.topics-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .like-item:hover,
+.topics-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .like-item:hover,
+.topics-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .like-item:hover,
+.main-post-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .like-item:hover,
+.main-post-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .like-item:hover,
+.main-post-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .like-item:hover,
+.main-post-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .like-item:hover,
+.users-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .like-item:hover,
+.users-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .like-item:hover,
+.users-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .like-item:hover,
+.users-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .like-item:hover {
+  cursor: pointer;
+  color: #39c6f1;
+}
+
+.topics-wrapper .topic-wrapper .topic-section .topic-section-links .topic-comment-section,
+.topics-wrapper .topic-wrapper .topic-section .main-post-section-links .topic-comment-section,
+.topics-wrapper .topic-wrapper .main-post-section .topic-section-links .topic-comment-section,
+.topics-wrapper .topic-wrapper .main-post-section .main-post-section-links .topic-comment-section,
+.main-post-wrapper .topic-wrapper .topic-section .topic-section-links .topic-comment-section,
+.main-post-wrapper .topic-wrapper .topic-section .main-post-section-links .topic-comment-section,
+.main-post-wrapper .topic-wrapper .main-post-section .topic-section-links .topic-comment-section,
+.main-post-wrapper .topic-wrapper .main-post-section .main-post-section-links .topic-comment-section,
+.users-wrapper .topic-wrapper .topic-section .topic-section-links .topic-comment-section,
+.users-wrapper .topic-wrapper .topic-section .main-post-section-links .topic-comment-section,
+.users-wrapper .topic-wrapper .main-post-section .topic-section-links .topic-comment-section,
+.users-wrapper .topic-wrapper .main-post-section .main-post-section-links .topic-comment-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.topics-wrapper .topic-wrapper .topic-section .topic-section-links .topic-comment-section p,
+.topics-wrapper .topic-wrapper .topic-section .main-post-section-links .topic-comment-section p,
+.topics-wrapper .topic-wrapper .main-post-section .topic-section-links .topic-comment-section p,
+.topics-wrapper .topic-wrapper .main-post-section .main-post-section-links .topic-comment-section p,
+.main-post-wrapper .topic-wrapper .topic-section .topic-section-links .topic-comment-section p,
+.main-post-wrapper .topic-wrapper .topic-section .main-post-section-links .topic-comment-section p,
+.main-post-wrapper .topic-wrapper .main-post-section .topic-section-links .topic-comment-section p,
+.main-post-wrapper .topic-wrapper .main-post-section .main-post-section-links .topic-comment-section p,
+.users-wrapper .topic-wrapper .topic-section .topic-section-links .topic-comment-section p,
+.users-wrapper .topic-wrapper .topic-section .main-post-section-links .topic-comment-section p,
+.users-wrapper .topic-wrapper .main-post-section .topic-section-links .topic-comment-section p,
+.users-wrapper .topic-wrapper .main-post-section .main-post-section-links .topic-comment-section p {
+  margin: .5em;
+}
+
+.main-post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border: 1px solid #2a0909;
+  background: #fff;
+  width: 99%;
+  margin-bottom: .5em;
+  padding: 1em 0;
+}
+
+@media (min-width: 1024px) {
+  .main-post {
+    width: 92%;
+  }
+}
+/*# sourceMappingURL=Topics.css.map */
