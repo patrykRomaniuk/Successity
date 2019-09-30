@@ -95,6 +95,13 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                          Tematy
                     </Link>
 
+                    <Link
+                     className="sidebar-link" 
+                     to="/add-post"
+                     onClick={() => setSidebar(false)}
+                     >Zadaj pytanie
+                     </Link>
+
                     <Link 
                     className="sidebar-link" 
                     to="/account"
