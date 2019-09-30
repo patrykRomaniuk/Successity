@@ -148,7 +148,7 @@ html body .main__nav .nav-links .nav__link:hover {
 }
 
 html body .sidebar-wrapper {
-  position: absolute;
+  position: fixed;
   top: 0%;
   left: 0%;
   -webkit-box-orient: vertical;
