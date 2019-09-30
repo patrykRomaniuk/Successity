@@ -1,0 +1,253 @@
+body {
+  overflow-x: hidden;
+}
+
+.account-page-wrapper {
+  margin-top: 10em;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .account-page-wrapper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.account-page-wrapper .data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 5em;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .account-page-wrapper .data {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 40%;
+  }
+}
+
+.account-page-wrapper .data .data-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .account-page-wrapper .data .data-items {
+    margin-left: 1em;
+  }
+}
+
+.account-page-wrapper .data .data-items .data-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+}
+
+.account-page-wrapper .user-posts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100vw;
+  margin-top: 4em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .account-page-wrapper .user-posts {
+    width: 60vw;
+  }
+}
+
+.account-page-wrapper .user-posts .user-posts-header-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 5vh;
+  margin: 0;
+  padding: 0px;
+  border-top: 1px solid #2a0909;
+  border-left: 1px solid #2a0909;
+  border-right: 1px solid #2a0909;
+}
+
+@media (min-width: 1024px) {
+  .account-page-wrapper .user-posts .user-posts-header-wrapper {
+    width: 92%;
+  }
+}
+
+.account-page-wrapper .user-posts .user-posts-header-wrapper .user-posts-header {
+  color: #f4f4f4;
+}
+
+.account-page-wrapper .user-posts .user-post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #2a0909;
+  background: #fff;
+  width: 99%;
+  margin-bottom: .5em;
+  padding: 1em 0;
+}
+
+@media (min-width: 1024px) {
+  .account-page-wrapper .user-posts .user-post {
+    width: 92%;
+  }
+}
+
+.account-page-wrapper .user-posts .user-post .user-post-date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  font-size: .7em;
+}
+
+.account-page-wrapper .user-posts .user-post .user-post-topic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.account-page-wrapper .user-posts .user-post .user-post-topic p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.account-page-wrapper .user-posts .user-post .post__likes__comments__deleteBtn-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.account-page-wrapper .user-posts .user-post .post__likes__comments__deleteBtn-wrapper .post__likes__comments__deleteBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 5vh;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .account-page-wrapper .user-posts .user-post .post__likes__comments__deleteBtn-wrapper .post__likes__comments__deleteBtn {
+    width: 50% !important;
+  }
+}
+
+.account-page-wrapper .user-posts .user-post .post__likes__comments__deleteBtn-wrapper .post__likes__comments__deleteBtn .removePostBtn {
+  color: #f4f4f4;
+  padding: 5px;
+  -webkit-transition: background .3s ease-in-out;
+  transition: background .3s ease-in-out;
+}
+
+.account-page-wrapper .user-posts .user-post .post__likes__comments__deleteBtn-wrapper .post__likes__comments__deleteBtn .removePostBtn:hover {
+  cursor: pointer;
+  background: #39c6f1;
+}
+/*# sourceMappingURL=Account.css.map */
