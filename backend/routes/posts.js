@@ -179,6 +179,34 @@ router.put(
 );
 
 router.put(
+    '/likes/:post_id/:comment_id',
+    auth,
+    async(req,res) => {
+        try {
+            let post = await Post.findById(req.params.post_id);
+            if(!post){
+                return res.status(401).json({ msg: "There is not post that, you want like" });
+            }
+
+            const searchComments = post.comments
+            .find(comment => comment._id.toString() === req.params.comment_id);
+
+            if(searchComments.likes.filter(like => like.user.toString() === req.user.id).length > 0){
+                return res.status(400).json({ msg: "Post Already Liked" });
+            }
+
+            searchComments.likes.unshift({ user: req.user.id });
+            await post.save();
+
+            res.json(searchComments);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.put(
     '/comments/:post_id',
     [
         check('text',"Text is required").not().isEmpty()
