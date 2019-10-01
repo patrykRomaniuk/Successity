@@ -18,7 +18,6 @@ import './styles/App.css';
 import './styles/AddPostPage.css';
 import './styles/RegisterPage.css';
 import './styles/Topics.css';
-import './styles/Users.css';
 
 if(localStorage.getItem('token')){
   setAuthToken(localStorage.getItem('token'));
