@@ -36,15 +36,12 @@ const PostPageItem = ({ comment,post,auth,likeComment,removeLikeFromComment }) =
                         onClick={() => {
                             if(comment.likes.find(comment => comment.user === auth.user._id) ){
                                 comment.likes
-                                .find(like => {
-                                    console.log(like)
-                                    console.log(comment)
+                                .find(like =>
                                     removeLikeFromComment(
                                         post._id,
                                         comment._id,
                                         like._id                    
-                                    )
-                                });
+                                    ));
                             } else {
                                 likeComment(
                                     post._id,
