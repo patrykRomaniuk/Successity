@@ -18,6 +18,12 @@ html{
             height: 100vh;
         }
 
+        .hover{
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
         .small_margin_right{
             margin-right: 10px;
         }

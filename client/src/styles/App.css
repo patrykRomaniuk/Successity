@@ -27,6 +27,10 @@ html body .all-page-wrapper {
   height: 100vh;
 }
 
+html body .hover:hover {
+  cursor: pointer;
+}
+
 html body .small_margin_right {
   margin-right: 10px;
 }
