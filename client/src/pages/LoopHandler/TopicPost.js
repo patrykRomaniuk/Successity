@@ -4,13 +4,7 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import {
     addLike,
-    removeLikeFromTopicPage,
-    getPosts,
-    getLatestPosts,
-    getMostLikedPosts,
-    searchTopics,
-    getMostCommented,
-    getPost
+    removeLikeFromTopicPage
 } from '../../actions/posts';
 
 const TopicPost = ({ post,auth,removeLikeFromTopicPage,addLike,isOldest,isLatest,isMostLikedPosts,isMostCommented }) => {
