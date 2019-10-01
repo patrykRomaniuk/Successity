@@ -1,7 +1,6 @@
 import { 
     MAKE_POST,
     POST_ERROR,
-    GET_USER_POSTS,
     REMOVE_POST,
     GET_POST,
     GET_POSTS,
@@ -12,9 +11,10 @@ import {
     MOST_COMMENTED,
     MAKE_COMMENT,
     ADD_LIKE,
-    GET_POSTS_BY_USER_ID,
+    LIKE_COMMENT,
     REMOVE_LIKE
 } from './constants';
+import { getUserPosts } from './users';
 import axios from 'axios';
 
 export const clearPost = () => async dispatch => {
@@ -28,21 +28,9 @@ export const clearPost = () => async dispatch => {
     }
 }
 
-export const getUserPosts = () => async dispatch => {
-    try {
-        const res = await axios.get('http://localhost:5000/api/posts/posts/user_posts');
-        dispatch({
-            type: GET_USER_POSTS,
-            payload: res.data
-        });
-    } catch (error) {
-        console.log(error.message);
-        dispatch({ type: POST_ERROR })
-    }
-}
-
 export const getPost = (post_id) => async dispatch => {
     try {
+        dispatch(clearPost());
         const res = await axios.get(`http://localhost:5000/api/posts/post/${post_id}`);
         dispatch({
             type: GET_POST,
@@ -62,19 +50,6 @@ export const getLatestPosts = () =>  async dispatch => {
             payload: res.data
         });
         dispatch(clearPost());
-    } catch (error) {
-        console.log(error.message);
-        dispatch({ type: POST_ERROR });
-    }
-}
-
-export const getUserPostsByUserId = (user_id) => async dispatch => {
-    try {
-        const res = await axios.get(`http://localhost:5000/api/posts/posts/user_posts/posts/${user_id}`);
-        dispatch({
-            type: GET_POSTS_BY_USER_ID,
-            payload: res.data
-        });
     } catch (error) {
         console.log(error.message);
         dispatch({ type: POST_ERROR });
@@ -156,6 +131,22 @@ export const makeComment = (post_id,text) => async dispatch => {
     } catch (error) {
         console.log(error.message);
         dispatch({ type: POST_ERROR });
+    }
+}
+
+export const likeComment = (post_id,comment_id) => async dispatch => {
+    try {
+        const res = await axios.put(`http://localhost:5000/api/posts/likes/${post_id}/${comment_id}`);
+        dispatch({
+            type: LIKE_COMMENT,
+            payload: res.data
+        });
+        dispatch(getPost(post_id));
+    } catch (error) {
+        console.log(error.message);
+        dispatch({
+            type: POST_ERROR
+        });
     }
 }
 
