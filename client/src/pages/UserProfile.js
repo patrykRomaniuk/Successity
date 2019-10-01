@@ -23,17 +23,23 @@ const UserProfile = ({ getUserById,getUserPostsByUserId,match,user,post,userProf
                 <img src={ userProfile.avatar } alt=""/>
 
                 <div className="data-items">
+
                     <div className="font__p data-item">
-                        <p className="font__bold">Imię:</p> 
-                        { userProfile.name }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Imię:</p>{ userProfile.name }
                     </div>
 
                     <div className="font__p data-item">
-                        <p className="font__bold">Nazwisko:</p> { userProfile.last_name }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Nazwisko:</p> { userProfile.last_name }
                     </div>
+
                     <div className="font__p data-item">
-                        <p className="font__bold">Pseudonim:</p> { userProfile.username }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Pseudonim:</p> { userProfile.username }
                     </div>
+
+                    <div className="font__p data-item">
+                        <p style={{ marginRight: '.4em' }} className="font__bold">E-mail:</p> { userProfile.email }
+                    </div>
+
                 </div>
                 <div className="user-posts">
                 <header className="user-posts-header-wrapper app_color_background">
