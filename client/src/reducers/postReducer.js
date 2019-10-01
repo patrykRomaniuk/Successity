@@ -7,7 +7,8 @@ import {
     MOST_COMMENTED,
     SEARCH_TOPICS,
     LATEST_POSTS,
-    POST_CLEAR
+    POST_CLEAR,
+    REMOVE_COMMENT_LIKE
 } from '../actions/constants'
 
 const initialState = {
@@ -27,6 +28,7 @@ const post = (state = initialState,action) => {
             }
         case MAKE_POST:
         case GET_POST:
+        case REMOVE_COMMENT_LIKE:
             return {
                 ...state,
                 isLoading: false,
