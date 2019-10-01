@@ -1,10 +1,8 @@
 import {
     MAKE_POST,
     POST_ERROR,
-    GET_USER_POSTS,
     GET_POSTS,
     GET_POST,
-    REMOVE_POST,
     MOST_LIKED_POSTS,
     MOST_COMMENTED,
     SEARCH_TOPICS,
@@ -29,7 +27,6 @@ const post = (state = initialState,action) => {
             }
         case MAKE_POST:
         case GET_POST:
-        case GET_USER_POSTS:
             return {
                 ...state,
                 isLoading: false,
