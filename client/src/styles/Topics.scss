@@ -89,12 +89,12 @@ textarea{
     align-items: center;
     text-align: center;
     width: 90px;
-    height: 42px;
+    height: 40px;
     border-radius: 10px;
     transition: background .3s ease-in-out;
     @media(min-width: 1024px){
-        height: 50px;
-        width: 100px;
+        height: 60px !important;
+        width: 100px !important;
     }
     a{
         display: flex;
@@ -168,7 +168,7 @@ textarea{
                         margin: .5em;
                     }
                     .like-item{
-                       margin: .5em;
+                       margin: .1em;
                        &:hover{
                            cursor: pointer;
                            color: #39c6f1;

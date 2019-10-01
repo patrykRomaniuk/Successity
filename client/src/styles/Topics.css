@@ -164,7 +164,7 @@ textarea {
           align-items: center;
   text-align: center;
   width: 90px;
-  height: 42px;
+  height: 40px;
   border-radius: 10px;
   -webkit-transition: background .3s ease-in-out;
   transition: background .3s ease-in-out;
@@ -172,8 +172,8 @@ textarea {
 
 @media (min-width: 1024px) {
   .link-to-post-page-button {
-    height: 50px;
-    width: 100px;
+    height: 60px !important;
+    width: 100px !important;
   }
 }
 
@@ -405,7 +405,7 @@ textarea {
 .users-wrapper .topic-wrapper .topic-section .main-post-section-links .like-section .like-item,
 .users-wrapper .topic-wrapper .main-post-section .topic-section-links .like-section .like-item,
 .users-wrapper .topic-wrapper .main-post-section .main-post-section-links .like-section .like-item {
-  margin: .5em;
+  margin: .1em;
 }
 
 .topics-wrapper .topic-wrapper .topic-section .topic-section-links .like-section .like-item:hover,
