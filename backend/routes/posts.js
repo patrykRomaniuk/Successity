@@ -282,6 +282,29 @@ router.delete(
 );
 
 router.delete(
+    '/likes/remove_comment_like/:post_id/:comment_id/:like_id',
+    auth,
+    async(req,res) => {
+        try {
+            let post = await Post.findById(req.params.post_id);
+            let searchLike = post.comments
+            .find(comment => comment._id.toString() === req.params.comment_id);
+            let removeIndex = searchLike.likes.find(like => like._id.toString() === req.params.like_id);
+            if(removeIndex){
+                searchLike.likes.splice(removeIndex,1);
+                await post.save();
+                res.json(post);
+            } else {
+                res.json({ msg: "There is no like of this comment" });
+            }
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." })
+        }
+    }
+)
+
+router.delete(
     '/comments/:post_id/:comment_id',
     auth,
     async(req,res) => {
