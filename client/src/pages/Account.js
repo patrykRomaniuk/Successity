@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import UserPostsWrapper from './LoopHandler/UserPostsWrapper';
 
-const Account = ({ getUserPosts,profilePosts,auth: { avatar,name,last_name,username,isAuthenticated } }) => {
+const Account = ({ getUserPosts,profilePosts,auth: { avatar,email,name,last_name,username,isAuthenticated } }) => {
     if(!isAuthenticated){
         return <Redirect to="/topics"/>
     }
@@ -20,16 +20,21 @@ const Account = ({ getUserPosts,profilePosts,auth: { avatar,name,last_name,usern
 
                 <div className="data-items">
                     <div className="font__p data-item">
-                        <p className="font__bold">Imię:</p> 
-                        { name }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Imię:</p> { name }
                     </div>
 
                     <div className="font__p data-item">
-                        <p className="font__bold">Nazwisko:</p> { last_name }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Nazwisko:</p> { last_name }
                     </div>
+
                     <div className="font__p data-item">
-                        <p className="font__bold">Pseudonim:</p> { username }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Pseudonim:</p> { username }
                     </div>
+
+                    <div className="font__p data-item">
+                        <p style={{ marginRight: '.4em' }} className="font__bold">E-mail:</p>{'  '}{ email }
+                    </div>
+
                 </div>
 
             </div>
