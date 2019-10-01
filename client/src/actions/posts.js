@@ -12,7 +12,8 @@ import {
     MAKE_COMMENT,
     ADD_LIKE,
     LIKE_COMMENT,
-    REMOVE_LIKE
+    REMOVE_LIKE,
+    REMOVE_COMMENT_LIKE
 } from './constants';
 import { getUserPosts } from './users';
 import axios from 'axios';
@@ -230,6 +231,20 @@ export const removeLikeFromTopicPage = (post_id,like_id,isOldest,isLatest,isMost
 export const removeLikeFromPostPage = (post_id,like_id) => async dispatch => {
     try {
         const res = await axios.delete(`http://localhost:5000/api/posts/likes/${post_id}/${like_id}`);
+        dispatch({
+            type: REMOVE_LIKE,
+            payload: res.data
+        });
+        dispatch(getPost(post_id));
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: POST_ERROR });
+    }
+}
+
+export const removeLikeFromComment = (post_id,comment_id,like_id) => async dispatch => {
+    try {
+        const res = await axios.delete(`http://localhost:5000/api/posts/likes/remove_comment_like/${post_id}/${comment_id}/${like_id}`);
         dispatch({
             type: REMOVE_LIKE,
             payload: res.data
