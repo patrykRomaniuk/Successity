@@ -12,8 +12,7 @@ import {
     MAKE_COMMENT,
     ADD_LIKE,
     LIKE_COMMENT,
-    REMOVE_LIKE,
-    REMOVE_COMMENT_LIKE
+    REMOVE_LIKE
 } from './constants';
 import { getUserPosts } from './users';
 import axios from 'axios';
