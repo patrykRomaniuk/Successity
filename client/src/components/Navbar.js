@@ -108,7 +108,6 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     <Link 
                     className="sidebar-link" 
                     to="/account"
-                    style={{ display: isSidebar ? "block" : "none" }}
                     onClick={() => setSidebar(false)}
                     style={{ display: isSidebar && isAuthenticated ? "block" : "none" }}
                     >
