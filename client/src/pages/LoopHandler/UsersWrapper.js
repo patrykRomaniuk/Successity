@@ -6,6 +6,6 @@ users !== null &&
 users !== [] &&
 users !== {} &&
 users.length > 0 &&
-users.map(user => <User user={user}/>)
+users.map(user => <User user={user} key={ user._id }/>)
 
 export default UsersWrapper
