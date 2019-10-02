@@ -25,7 +25,6 @@ const Topics = ({
     const [ isMostCommented, setMostCommented ] = useState(false);
 
     useEffect(() => {
-
         if(isMostLikedPosts){
             getMostLikedPosts()
         } else if(isLatest){
@@ -33,7 +32,6 @@ const Topics = ({
         } else {
             getPosts();
         }
-
     },[]);
 
     const onChange = e => {
