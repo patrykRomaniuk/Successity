@@ -91,9 +91,12 @@ html{
                     @media(max-width: 1024px){
                         display: none !important;
                     }
-                    @media(min-width: 1024px){
+                    @media(min-width: 1500px){
                         font-size: 1.5em;
                         display: flex;
+                    }
+                    @media(max-width: 1500px){
+                        font-size: 1.2em;
                     }
                     &:hover{
                         color: #201414;
