@@ -46,6 +46,11 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     Profil <i className="fas fa-user"></i>
                 </Link>
 
+                <Link to="/dashboard" className="href__style__remove nav__link"
+                 style={{ display: isAuthenticated ? 'flex' : 'none' }}>
+                    Dashboard <i className="fas fa-user"></i>
+                </Link>
+
                 <Link to="/add-post" className="href__style__remove nav__link"
                  style={{ display: isAuthenticated ? 'flex' : 'none' }}>
                     Zadaj pytanie <i className="fas fa-edit"></i>
