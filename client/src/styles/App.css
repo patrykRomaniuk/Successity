@@ -220,7 +220,8 @@ html body .sidebar-wrapper .sidebar-links .sidebar-link {
   font-size: 1.5em;
 }
 
-html body .landing-wrapper {
+html body .landing-wrapper,
+html body .dashboard-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -234,7 +235,8 @@ html body .landing-wrapper {
 }
 
 @media (min-width: 1024px) {
-  html body .landing-wrapper {
+  html body .landing-wrapper,
+  html body .dashboard-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -248,21 +250,32 @@ html body .landing-wrapper {
   }
 }
 
-html body .landing-wrapper .image-wrapper {
-  width: 50vw;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+html body .landing-wrapper .image-wrapper,
+html body .dashboard-wrapper .image-wrapper {
+  display: none;
 }
 
-html body .landing-wrapper .image-wrapper .landing-image {
+@media (min-width: 1024px) {
+  html body .landing-wrapper .image-wrapper,
+  html body .dashboard-wrapper .image-wrapper {
+    width: 50vw;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+html body .landing-wrapper .image-wrapper .landing-image,
+html body .landing-wrapper .image-wrapper .dashboard-image,
+html body .dashboard-wrapper .image-wrapper .landing-image,
+html body .dashboard-wrapper .image-wrapper .dashboard-image {
   width: 70%;
   height: 70%;
   background-position: center;
@@ -270,12 +283,14 @@ html body .landing-wrapper .image-wrapper .landing-image {
   background-size: cover;
 }
 
-html body .landing-wrapper .text-wrapper {
+html body .landing-wrapper .text-wrapper,
+html body .dashboard-wrapper .text-wrapper {
   width: 80vw;
 }
 
 @media (min-width: 1024px) {
-  html body .landing-wrapper .text-wrapper {
+  html body .landing-wrapper .text-wrapper,
+  html body .dashboard-wrapper .text-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -294,7 +309,8 @@ html body .landing-wrapper .text-wrapper {
   }
 }
 
-html body .landing-wrapper .text-wrapper .text-header-wrapper {
+html body .landing-wrapper .text-wrapper .text-header-wrapper,
+html body .dashboard-wrapper .text-wrapper .text-header-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -306,14 +322,16 @@ html body .landing-wrapper .text-wrapper .text-header-wrapper {
           align-items: center;
 }
 
-html body .landing-wrapper .text-wrapper .text-header-wrapper span {
+html body .landing-wrapper .text-wrapper .text-header-wrapper span,
+html body .dashboard-wrapper .text-wrapper .text-header-wrapper span {
   color: #3cd1fd;
   font-family: 'Kaushan Script',sans-serif;
   font-size: 1.7em;
   font-weight: bold;
 }
 
-html body .landing-wrapper .text-wrapper .text-button-wrapper a {
+html body .landing-wrapper .text-wrapper .text-button-wrapper a,
+html body .dashboard-wrapper .text-wrapper .text-button-wrapper a {
   color: #f4f4f4;
   text-decoration: none;
   text-align: center;
@@ -327,12 +345,14 @@ html body .landing-wrapper .text-wrapper .text-button-wrapper a {
 }
 
 @media (min-width: 1024px) {
-  html body .landing-wrapper .text-wrapper .text-button-wrapper a {
+  html body .landing-wrapper .text-wrapper .text-button-wrapper a,
+  html body .dashboard-wrapper .text-wrapper .text-button-wrapper a {
     font-size: 1em;
   }
 }
 
-html body .landing-wrapper .text-wrapper .text-button-wrapper a:hover {
+html body .landing-wrapper .text-wrapper .text-button-wrapper a:hover,
+html body .dashboard-wrapper .text-wrapper .text-button-wrapper a:hover {
   background: #39c6f1;
 }
 
