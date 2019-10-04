@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import successity from '../successity.png';
 
 const Landing = () => {
     return (
@@ -7,7 +8,7 @@ const Landing = () => {
             <div className="text-wrapper">
                 <div className="text-header-wrapper">
                     <p className="text-header font__p p__size">Witaj w</p>
-                    <span>Chatglass {' '}</span> 
+                    <span>Successity! {' '}</span> 
                 </div>
 
                 <div className="text-section font__p p__size">
@@ -30,7 +31,7 @@ const Landing = () => {
 
             </div>
             <div className="image-wrapper">
-
+                    <img src={ successity } className="landing-image" alt=""/>
             </div>
         </div>
     )
