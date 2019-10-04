@@ -155,6 +155,20 @@ html{
                 align-items: flex-start !important;
                 height: 90vh;
             }
+            .image-wrapper{
+                width: 50vw;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .landing-image{
+                    width: 70%;
+                    height: 70%;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
             .text-wrapper{
                 width: 80vw;
                 @media (min-width: 1024px) {
