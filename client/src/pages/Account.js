@@ -1,4 +1,4 @@
-import React,{ useEffect } from 'react';
+import React,{ useEffect,useState } from 'react';
 import { getUserPosts } from '../actions/users';
 import '../styles/Account.css';
 import { Redirect } from 'react-router-dom';
@@ -11,12 +11,22 @@ const Account = ({ getUserPosts,profilePosts,auth: { avatar,email,name,last_name
     }
     useEffect(() => {
         getUserPosts();
-    },[])
+    },[]);
+
+    const [ picture,setPicture ] = useState('');
+
+    const handleChange = e => {
+        const pictureFile = e.target.files[0].name;
+        console.log(pictureFile)
+        setPicture(pictureFile)
+    }
+
     return (
         <div className="account-page-wrapper">
 
             <div className="data">
-                <img src={ avatar } alt=""/>
+                <input type="file" onChange={e => handleChange(e)}/>
+                <img src={ picture } alt=""/>
 
                 <div className="data-items">
                     <div className="font__p data-item">
