@@ -50,7 +50,7 @@ router.get(
     '/post/:post_id',
     async(req,res) => {
         try {
-            let post = await Post.findById(req.params.post_id);
+            let post = await Post.findById(req.params.post_id).sort({ likes: -1 });
             res.json(post);  
         } catch (error) {
             console.log(error.message);
