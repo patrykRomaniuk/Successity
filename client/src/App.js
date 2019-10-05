@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import Register from './pages/Register';
 import PostPage from './pages/PostPage';
+import Dashboard from './pages/Dashboard';
 import { Provider } from 'react-redux';
 import store from './store';
 import setAuthToken from './middleware/setAuthToken';
@@ -14,6 +15,7 @@ import AddPost from './pages/AddPost';
 import Topics from './pages/Topics';
 import UserProfile from './pages/UserProfile';
 import Users from './pages/Users';
+import './styles/Dashboard.css';
 import './styles/App.css';
 import './styles/AddPostPage.css';
 import './styles/RegisterPage.css';
@@ -38,6 +40,7 @@ const App = () => {
         <Route exact path="/account" component={ Account }/>
         <Route exact path="/add-post" component={ AddPost }/>
         <Route exact path="/topics" component={ Topics }/>
+        <Route exact path="/dashboard" component={ Dashboard }/>
         <Route exact path="/users" component={ Users }/>
         <Route exact path="/topics/topic/:id" component={ PostPage } />
         <Route exact path="/users/user/:user_id" component={ UserProfile }/>
