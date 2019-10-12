@@ -155,7 +155,7 @@ const Topics = ({
                  <textarea 
                  value={ searchValue }
                  onChange={(e) => onChange(e)}
-                 type="text"
+                 type="submit"
                  />
 
                  <div className="topic-search-button app_color_background font__p font__bold" onClick={() => {

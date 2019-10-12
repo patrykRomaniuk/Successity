@@ -6,27 +6,21 @@ import { connect } from 'react-redux';
 import UserPostsWrapper from './LoopHandler/UserPostsWrapper';
 
 const Account = ({ getUserPosts,profilePosts,auth: { avatar,email,name,last_name,username,isAuthenticated } }) => {
+   
     if(!isAuthenticated){
         return <Redirect to="/topics"/>
     }
+
     useEffect(() => {
         getUserPosts();
     },[]);
-
-    const [ picture,setPicture ] = useState('');
-
-    const handleChange = e => {
-        const pictureFile = e.target.files[0].name;
-        console.log(pictureFile)
-        setPicture(pictureFile)
-    }
 
     return (
         <div className="account-page-wrapper">
 
             <div className="data">
-                <input type="file" onChange={e => handleChange(e)}/>
-                <img src={ picture } alt=""/>
+
+                <img src={ avatar } alt=""/>
 
                 <div className="data-items">
                     <div className="font__p data-item">
