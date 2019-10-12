@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://brad123:brad123@chatglass-eeoad.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
