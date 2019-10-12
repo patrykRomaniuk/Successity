@@ -2,11 +2,14 @@
   "name": "chatglass",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "client": "cd client && npm start",
-    "forever": "cd backend && npm run forever"
+    "forever": "forever -w server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "forever": "^1.0.0"
+  }
 }
