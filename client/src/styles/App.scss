@@ -67,14 +67,17 @@ html{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
             width: 100vw;
             height: 10vh;
             .logo-wrapper{
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                width: 30%;
+                flex: 1;
+                width: 60%;
                 height: 100%;
+                margin-top: 1em;
             }
             .nav-links{
                 height: 100%;
