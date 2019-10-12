@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logOut } from '../actions/auth';
 import { connect } from 'react-redux';
-import chatGlassIcon from '../chatGlassIcon.png';
+import successity from '../successity.png';
 
 const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
     
@@ -13,7 +13,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
 
             <div className="logo-wrapper">
                 <Link to="/">
-                    <img src={ chatGlassIcon } alt=""/>
+                    <img src={ successity } alt=""/>
                 </Link>
             </div>
 
@@ -43,7 +43,7 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
 
                 <Link to="/account" className="href__style__remove nav__link"
                  style={{ display: isAuthenticated ? 'flex' : 'none' }}>
-                    Profil <i className="fas fa-user"></i>
+                    Profil <i className="fas fa-address-card"></i>
                 </Link>
 
                 <Link to="/dashboard" className="href__style__remove nav__link"
@@ -117,6 +117,15 @@ const Navbar = ({ logOut,auth: { isAuthenticated } }) => {
                     style={{ display: isSidebar && isAuthenticated ? "block" : "none" }}
                     >
                         Profil
+                    </Link>
+
+                    <Link 
+                    className="sidebar-link" 
+                    to="/dashboard"
+                    onClick={() => setSidebar(false)}
+                    style={{ display: isSidebar && isAuthenticated ? "block" : "none" }}
+                    >
+                        Dashboard
                     </Link>
 
                     <Link 
