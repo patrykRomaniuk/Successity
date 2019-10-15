@@ -25,7 +25,6 @@
                 text-align: center;
                 transition: all .3s ease-in-out;
                 border: 1px solid rgba(0,0,0,.05);
-                color: #0b0a0a;
                 background: rgba(0,0,0,.05);
                 width: 80%;
                 height: 10%;
@@ -33,6 +32,15 @@
                     color: #f4f4f4;
                     background: #37c1eb;
                     cursor: pointer;
+                }
+                .dashboard-link-href{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    color: #0b0a0a;
+                    width: 100%;
+                    height: 100%;
                 }
             }
         }
