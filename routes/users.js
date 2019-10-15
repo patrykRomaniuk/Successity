@@ -125,6 +125,106 @@ router.post(
 );
 
 router.post(
+    '/change_username',
+    [
+        check('new_username','Fulfill new username')
+    ],
+    auth,
+    async(req,res) => {
+        try {
+            const { new_username } = req.body;
+            let users = await User.find();
+            let user = await User.findById(req.user.id);
+            if(user.username === new_username){
+                return res.status(401).json({ msg: "This is password that u already have" });
+            }
+            if(users.find(user => user.username === new_username)){
+                return res.status(401).json({ msg: "There is already user with this nickname" });
+            }
+            user.username = new_username;
+            await user.save();
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.post(
+    '/change_email',
+    [
+        check('new_email','Fulfill new e-mail')
+    ],
+    auth,
+    async(req,res) => {
+        try {
+            const { new_email } = req.body;
+            let users = await User.find();
+            let user = await User.findById(req.user.id);
+            if(user.email === new_email){
+                return res.status(401).json({ msg: "This is password that u already have" });
+            }
+            if(users.find(user => user.email === new_email)){
+                return res.status(401).json({ msg: "There is already user with this nickname" });
+            }
+            user.email = new_email;
+            await user.save();
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.post(
+    '/change_name',
+    [
+        check('new_name','Fulfill new name')
+    ],
+    auth,
+    async(req,res) => {
+        try {
+            const { new_name } = req.body;
+            let user = await User.findById(req.user.id);
+            if(user.name === new_name){
+                return res.status(401).json({ msg: "This is name that you already have in your profile" });
+            }
+            user.name = new_name;
+            await user.save();
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.post(
+    '/change_last_name',
+    [
+        check('new_last_name','Fulfill new last name')
+    ],
+    auth,
+    async(req,res) => {
+        try {
+            const { new_last_name } = req.body;
+            let user = await User.findById(req.user.id);
+            if(user.last_name === new_last_name){
+                return res.status(401).json({ msg: "This is last that you already have" });
+            }
+            user.last_name = new_last_name;
+            await user.save();
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.post(
     '/login',
     [
         check('email','Email is required').not().isEmpty(),
