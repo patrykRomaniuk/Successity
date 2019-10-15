@@ -5,7 +5,11 @@ import {
     LOGIN_FAIL,
     AUTH_ERROR,
     USER_LOADED,
-    LOG_OUT
+    LOG_OUT,
+    CHANGE_EMAIL,
+    CHANGE_LAST_NAME,
+    CHANGE_USERNAME,
+    CHANGE_NAME
 } from './constants';
 import axios from 'axios';
 import setAuthToken from '../middleware/setAuthToken';
@@ -47,6 +51,82 @@ export const registerUser = ( name,last_name,username,email,password ) => async 
         dispatch({
             type: REGISTER_FAIL
         });
+    }
+};
+
+export const changeEmail = (new_email) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ new_email });
+        let res = await axios.post('http://localhost:5000/api/users/change_email',body,config);
+        dispatch({
+            type: CHANGE_EMAIL,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: AUTH_ERROR });
+    }
+}
+
+export const changeUsername = (new_username) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ new_username });
+        let res = await axios.post('http://localhost:5000/api/users/change_username',body,config);
+        dispatch({
+            type: CHANGE_USERNAME,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: AUTH_ERROR });
+    }
+}
+
+export const changeName = (new_name) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ new_name });
+        let res = await axios.post('http://localhost:5000/api/users/change_name',body,config);
+        dispatch({
+            type: CHANGE_NAME,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: AUTH_ERROR });
+    }
+}
+
+export const changeLastName = (new_last_name) => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ new_last_name });
+        let res = await axios.post('http://localhost:5000/api/users/change_last_name',body,config);
+        dispatch({
+            type: CHANGE_LAST_NAME,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: AUTH_ERROR });
     }
 }
 
