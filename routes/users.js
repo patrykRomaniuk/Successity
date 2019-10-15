@@ -127,14 +127,18 @@ router.post(
 router.post(
     '/change_username',
     [
-        check('new_username','Fulfill new username')
+        check('new_username','Fulfill new username').not().isEmpty()
     ],
     auth,
     async(req,res) => {
         try {
+            let errors = validationResult(req);
             const { new_username } = req.body;
             let users = await User.find();
             let user = await User.findById(req.user.id);
+            if(!errors.isEmpty()){
+                return res.status(400).json({ errors: errors.array() });
+            }
             if(user.username === new_username){
                 return res.status(401).json({ msg: "This is password that u already have" });
             }
@@ -154,14 +158,18 @@ router.post(
 router.post(
     '/change_email',
     [
-        check('new_email','Fulfill new e-mail')
+        check('new_email','Fulfill new e-mail').isEmail()
     ],
     auth,
     async(req,res) => {
         try {
+            let errors = validationResult(req);
             const { new_email } = req.body;
             let users = await User.find();
             let user = await User.findById(req.user.id);
+            if(!errors.isEmpty()){
+                return res.status(400).json({ errors: errors.array() });
+            }
             if(user.email === new_email){
                 return res.status(401).json({ msg: "This is password that u already have" });
             }
@@ -181,13 +189,17 @@ router.post(
 router.post(
     '/change_name',
     [
-        check('new_name','Fulfill new name')
+        check('new_name','Fulfill new name').not().isEmpty()
     ],
     auth,
     async(req,res) => {
         try {
+            let errors = validationResult(req);
             const { new_name } = req.body;
             let user = await User.findById(req.user.id);
+            if(!errors.isEmpty()){
+                return res.status(400).json({ errors: errors.array() });
+            }
             if(user.name === new_name){
                 return res.status(401).json({ msg: "This is name that you already have in your profile" });
             }
@@ -204,13 +216,17 @@ router.post(
 router.post(
     '/change_last_name',
     [
-        check('new_last_name','Fulfill new last name')
+        check('new_last_name','Fulfill new last name').not().isEmpty()
     ],
     auth,
     async(req,res) => {
         try {
+            let errors = validationResult(req);
             const { new_last_name } = req.body;
             let user = await User.findById(req.user.id);
+            if(!errors.isEmpty()){
+                return res.status(400).json({ errors: errors.array() });
+            }
             if(user.last_name === new_last_name){
                 return res.status(401).json({ msg: "This is last that you already have" });
             }
