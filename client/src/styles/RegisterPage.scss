@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 
-.register-page-wrapper{
+.register-page-wrapper,
+.change-profile-page-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90vh;
     width: 100vw;
-
-    .register-section{
+    .register-section,
+    .change-profile-section{
         display: flex;
         flex-direction: column;
         justify-content: center;
