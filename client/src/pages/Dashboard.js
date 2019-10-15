@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import successity from '../successity.png';
@@ -19,15 +20,15 @@ const Dashboard = ({ auth }) => {
                     <div className="dashboard-links">
 
                         <div className="dashboard-link font__p font__bold p__size">
-                            Change e-mail
+                            <Link to="/change-profile" className="dashboard-link-href">
+                                Change Profile
+                            </Link>
                         </div>
                         
                         <div className="dashboard-link font__p font__bold p__size">
-                            Change password
-                        </div>
-                        
-                        <div className="dashboard-link font__p font__bold p__size">
-                            Remind password
+                            <Link to="/change-password" className="dashboard-link-href">
+                                Change password
+                            </Link>
                         </div>
 
                     </div>
