@@ -9,7 +9,8 @@ import {
     CHANGE_EMAIL,
     CHANGE_LAST_NAME,
     CHANGE_USERNAME,
-    CHANGE_NAME
+    CHANGE_NAME,
+    CHANGE_REJECT
 } from './constants';
 import axios from 'axios';
 import setAuthToken from '../middleware/setAuthToken';
@@ -69,7 +70,7 @@ export const changeEmail = (new_email) => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: AUTH_ERROR });
+        dispatch({ type: CHANGE_REJECT });
     }
 }
 
@@ -88,7 +89,7 @@ export const changeUsername = (new_username) => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: AUTH_ERROR });
+        dispatch({ type: CHANGE_REJECT });
     }
 }
 
@@ -107,7 +108,7 @@ export const changeName = (new_name) => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: AUTH_ERROR });
+        dispatch({ type: CHANGE_REJECT });
     }
 }
 
@@ -126,7 +127,7 @@ export const changeLastName = (new_last_name) => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: AUTH_ERROR });
+        dispatch({ type: CHANGE_REJECT });
     }
 }
 
