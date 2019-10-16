@@ -24,6 +24,12 @@ const Dashboard = ({ auth }) => {
                                 Change Profile
                             </Link>
                         </div>
+
+                        <div className="dashboard-link font__p font__bold p__size">
+                            <Link to="/contact-us" className="dashboard-link-href">
+                                Contact Us
+                            </Link>
+                        </div>
                         
                         <div className="dashboard-link font__p font__bold p__size">
                             <Link to="/change-password" className="dashboard-link-href">
