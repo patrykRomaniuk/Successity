@@ -13,7 +13,6 @@ app.use(bodyParser.json());
 
 app.use('/api/posts',require('./routes/posts'));
 app.use('/api/users',require('./routes/users'));
-app.use('/api/emails',require('./routes/emails'));
 
 const PORT = process.env.PORT || 5000;
 
