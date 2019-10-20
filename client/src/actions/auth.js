@@ -10,7 +10,9 @@ import {
     CHANGE_LAST_NAME,
     CHANGE_USERNAME,
     CHANGE_NAME,
-    CHANGE_REJECT
+    CHANGE_REJECT,
+    CHECK_PASSWORDS,
+    CHANGE_PASSWORD
 } from './constants';
 import axios from 'axios';
 import setAuthToken from '../middleware/setAuthToken';
@@ -54,6 +56,44 @@ export const registerUser = ( name,last_name,username,email,password ) => async 
         });
     }
 };
+
+export const checkPassword = password => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ password });
+        const res = await axios.post(`http://localhost:5000/api/users/check_password`,body,config);
+        dispatch({
+            type: CHECK_PASSWORDS,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: CHANGE_REJECT });
+    }
+};
+
+export const changePassword = new_password => async dispatch => {
+    try {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+        const body = JSON.stringify({ new_password });
+        const res = await axios.post(`http://localhost:5000/api/users/change_password`,body,config);
+        dispatch({
+            type: CHANGE_PASSWORD,
+            payload: res.data
+        });
+    } catch (error) {
+        console.log(error.message);
+        dispatch({ type: CHANGE_REJECT });
+    }
+}
 
 export const changeEmail = (new_email) => async dispatch => {
     try {
