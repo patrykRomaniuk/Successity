@@ -1,4 +1,4 @@
-import React,{ useEffect,useState } from 'react';
+import React,{ useEffect } from 'react';
 import { getUserPosts } from '../actions/users';
 import '../styles/Account.css';
 import { Redirect } from 'react-router-dom';
