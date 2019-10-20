@@ -125,6 +125,58 @@ router.post(
 );
 
 router.post(
+    '/change_password',
+    [
+        check('new_password','Type new password').isLength({ min: 6 })
+    ],
+    auth,
+    async(req,res) => {
+        try {
+            const { new_password } = req.body;
+            let user = await User.findById(req.user.id);
+            let errors = validationResult(req);
+            if(!errors.isEmpty()){
+                return res.status(500).json({ errors: errors.array() });
+            }
+            const salt = await bcryptjs.genSalt(10);
+            user.password = await bcryptjs.hash(new_password,salt);
+            await user.save();
+            res.json("Password changed");
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+)
+
+router.post(
+    '/check_password',
+    [
+        check('password','Type your actual password').not().isEmpty()
+    ],
+    auth,
+    async(req,res) => {
+        try {
+            const { password } = req.body;
+            let user = await User.findById(req.user.id);
+            let errors = validationResult(req);
+            if(!errors.isEmpty()){
+                return res.status(500).json({ errors: errors.array() });
+            }   
+            let isMatch = await bcryptjs.compare(password,user.password);
+            if(!isMatch){
+                return res.status(401).json({ msg: "Passwords don't match" });
+            }
+            user = await User.findById(req.user.id).select('-password');
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+);
+
+router.post(
     '/change_username',
     [
         check('new_username','Fulfill new username').not().isEmpty()
