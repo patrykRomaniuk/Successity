@@ -7,25 +7,25 @@ const Landing = () => {
         <div className="landing-wrapper">
             <div className="text-wrapper">
                 <div className="text-header-wrapper">
-                    <p className="text-header font__p p__size">Witaj w</p>
+                    <p className="text-header font__p p__size">Welcome in</p>
                     <span>Successity! {' '}</span> 
                 </div>
 
                 <div className="text-section font__p p__size">
-                    Jest to forum stripte poświęcone tematyce naszego wzroku.
+                    It is new forum about achieving success
                     <br/>
-                    Jeśli szukasz odpowiedzi na pytania dotyczące:
+                    If You are looking for answers on questions like: 
                     <ul>
-                        <li> chorób oczu</li>
-                        <li> wad wzroku</li>
-                        <li> dobóru okularów</li>
-                        <li> lub innych tego typu problemów</li>
+                        <li>How to start my business?</li>
+                        <li>How to grow company?</li>
+                        <li>How to improve yourself every day</li>
+                        <li>or You just want to share Your story</li>
                     </ul>
                     <div className="text-button-wrapper">
                         <Link to="/register">
-                            Zarejestruj się
+                            Register in
                         </Link>
-                       {' '}  i zadaj pytanie!
+                       {' '}  and add post!
                     </div>
                 </div>
 
