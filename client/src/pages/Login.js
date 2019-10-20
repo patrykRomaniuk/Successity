@@ -64,11 +64,6 @@ const Login = ({ loginUser,isAuthenticated }) => {
                             Zarejestruj się
                         </p>
                     </Link>
-                    <Link to="/register">
-                        <p className="p__size font__p password__info" style={{ marginLeft: '10px' }}>
-                            Zmień hasło
-                        </p>
-                    </Link>
                 </div>
 
                 <div className="button-wrapper app_color_background" onClick={(e) => onSubmit(e)}>
