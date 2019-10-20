@@ -1,0 +1,83 @@
+.change-profile-page-wrapper{
+    .change-profile-section{
+        input{
+            border: 1px solid rgba(0,0,0,.05);
+            background: rgba(0,0,0,.05);
+            width: 80%;
+            padding: .75em 0em;
+        }
+        .input-wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #eceeee;
+            width: 80%;
+            height: 15%;
+            margin-bottom: .75em;
+            transition: all .5s ease-in-out;
+            color: rgb(27, 26, 26);
+            &:last-child{
+                margin-bottom: 0em;
+            }
+            &:hover{
+                color: #f4f4f4;
+                cursor: pointer;
+                background: #37c1eb;
+            }
+           
+        }
+
+        .change-profile-buttons-wrapper{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 1em;
+            .change-profile-btn{
+                padding: 1em;
+                margin-right: .5em;
+                background: #37c1eb;
+                color: #f4f4f4;
+                border-radius: 5px;
+                transition: all .3s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    background: #2092b4;
+                }
+            }
+        }
+    }
+
+    .change-password-input-wrapper{
+        width: 90%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media(min-width:1024px){
+            width: 80%;
+        }
+        .change-password-label{
+            margin-bottom: .5em;
+        }
+        .change-password-input{
+            border: 1px solid rgba(0,0,0,.05);
+            background: rgba(0,0,0,.05);
+            width: 100%;
+            padding: .75em 0em;
+        }
+    }
+    .password-page-button{
+        padding: 1em;
+        margin-right: .5em;
+        background: #37c1eb;
+        color: #f4f4f4;
+        border-radius: 5px;
+        transition: all .3s ease-in-out;
+        margin-bottom: .5em;
+        &:hover{
+            cursor: pointer;
+            background: #2092b4;
+        }
+    }
+}

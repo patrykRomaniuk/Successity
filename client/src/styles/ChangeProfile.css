@@ -1,0 +1,114 @@
+.change-profile-page-wrapper .change-profile-section input {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.05);
+  width: 80%;
+  padding: .75em 0em;
+}
+
+.change-profile-page-wrapper .change-profile-section .input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #eceeee;
+  width: 80%;
+  height: 15%;
+  margin-bottom: .75em;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  color: #1b1a1a;
+}
+
+.change-profile-page-wrapper .change-profile-section .input-wrapper:last-child {
+  margin-bottom: 0em;
+}
+
+.change-profile-page-wrapper .change-profile-section .input-wrapper:hover {
+  color: #f4f4f4;
+  cursor: pointer;
+  background: #37c1eb;
+}
+
+.change-profile-page-wrapper .change-profile-section .change-profile-buttons-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1em;
+}
+
+.change-profile-page-wrapper .change-profile-section .change-profile-buttons-wrapper .change-profile-btn {
+  padding: 1em;
+  margin-right: .5em;
+  background: #37c1eb;
+  color: #f4f4f4;
+  border-radius: 5px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.change-profile-page-wrapper .change-profile-section .change-profile-buttons-wrapper .change-profile-btn:hover {
+  cursor: pointer;
+  background: #2092b4;
+}
+
+.change-profile-page-wrapper .change-password-input-wrapper {
+  width: 90%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .change-profile-page-wrapper .change-password-input-wrapper {
+    width: 80%;
+  }
+}
+
+.change-profile-page-wrapper .change-password-input-wrapper .change-password-label {
+  margin-bottom: .5em;
+}
+
+.change-profile-page-wrapper .change-password-input-wrapper .change-password-input {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.05);
+  width: 100%;
+  padding: .75em 0em;
+}
+
+.change-profile-page-wrapper .password-page-button {
+  padding: 1em;
+  margin-right: .5em;
+  background: #37c1eb;
+  color: #f4f4f4;
+  border-radius: 5px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  margin-bottom: .5em;
+}
+
+.change-profile-page-wrapper .password-page-button:hover {
+  cursor: pointer;
+  background: #2092b4;
+}
+/*# sourceMappingURL=ChangeProfile.css.map */
