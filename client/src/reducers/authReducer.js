@@ -12,15 +12,20 @@ import {
     CHANGE_LAST_NAME,
     CHANGE_USERNAME,
     CHANGE_NAME,
-    CHANGE_REJECT
+    CHANGE_REJECT,
+    CHANGE_PASSWORD,
+    CHECK_PASSWORDS
 } from '../actions/constants';
 
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: false,
     isLoading: true,
+    isAllowedToChangePassword: false,
+    isPasswordChanged: false,
     user: {},
     users: {},
+    error: {},
     errors: {}
 };
 
@@ -43,9 +48,22 @@ const auth = (state = initialState, action) => {
             return {
                 ...state,
                 ...payload,
+                error: {},
                 isAuthenticated: true,
                 isLoading: false,
                 user: payload
+            }
+        case CHANGE_PASSWORD:
+            return {
+                ...state,
+                ...payload,
+                isPasswordChanged: true
+            }
+        case CHECK_PASSWORDS:
+            return {
+                ...state,
+                ...payload,
+                isAllowedToChangePassword: true
             }
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
@@ -75,7 +93,8 @@ const auth = (state = initialState, action) => {
                 ...payload,
                 post: null,
                 posts: null,
-                errors: payload
+                errors: payload,
+                error: payload
             }
         default:
             return state;
