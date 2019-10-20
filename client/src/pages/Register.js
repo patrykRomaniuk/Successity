@@ -44,12 +44,12 @@ const Register = ({ registerUser,isAuthenticated }) => {
                     <header className="register-header-wrapper">
                         <p className="font__p p__size register-header">
                             <i className="fas fa-users users-icon app_color_font"></i>
-                            Zarejestruj się
+                            Sign Up
                         </p>
                     </header>
 
                     <div className="label-wrapper">
-                        <label className="label__register p__size">Imię</label>
+                        <label className="label__register p__size">Name</label>
                     </div>
 
                     <input 
@@ -60,7 +60,7 @@ const Register = ({ registerUser,isAuthenticated }) => {
                     />
 
                     <div className="label-wrapper">
-                        <label className="label__register p__size">Nazwisko</label>
+                        <label className="label__register p__size">Last Name</label>
                     </div>
                     <input 
                     type="text"
@@ -70,7 +70,7 @@ const Register = ({ registerUser,isAuthenticated }) => {
                     />
 
                     <div className="label-wrapper">
-                        <label className="label__register p__size">Pseudonim</label>
+                        <label className="label__register p__size">Username</label>
                     </div>
                     <input
                     type="text"
@@ -90,7 +90,7 @@ const Register = ({ registerUser,isAuthenticated }) => {
                     />
 
                     <div className="label-wrapper">
-                        <label className="label__register p__size">Hasło</label>
+                        <label className="label__register p__size">Password</label>
                     </div>
                     <input 
                     name="password"
@@ -102,12 +102,12 @@ const Register = ({ registerUser,isAuthenticated }) => {
                     <div className="label-wrapper">
                         <p className="p__size font__p password__info">
                             <i className="fas fa-user-check app_color_font"></i>{' '}
-                             Hasło musi mieć co najmniej 6 liter
+                            Password must have at least 6 letters
                         </p>
                     </div>
 
                     <div className="button-wrapper app_color_background" onClick={(e) => onSubmit(e)}>
-                        <p className="button-letter">Zarejestruj się</p>
+                        <p className="button-letter">Sign Up</p>
                     </div>
 
                 </div>

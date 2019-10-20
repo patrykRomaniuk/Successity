@@ -41,7 +41,7 @@ const AddPost = ({ makePost,clearPost,auth: { isAuthenticated },post }) => {
                 <div className="tips-wrapper">
                     <p className="font__p p__size font__bold app_color_font">
                         <i className="fas fa-check-circle small_margin_right"></i>
-                        Porady jak szybciej otrzymać odpowiedź
+                        Tips on getting good answers quickly
                     </p>
                 <br/>
 
@@ -49,28 +49,28 @@ const AddPost = ({ makePost,clearPost,auth: { isAuthenticated },post }) => {
                     <li className="tip-item">
                         <p className="font__p">
                             <i className="fas fa-check small_margin_right"></i>
-                            Upewnij się, że pytanie nie było wcześniej zadane
+                            Make sure your question hasn't been asked already
                         </p>
                     </li>
 
                     <li className="tip-item">
                         <p className="font__p">
                             <i className="fas fa-check small_margin_right"></i>
-                            Utrzymuj pytania krótkie i treściwe
+                            Keep your question short and to the point
                         </p>
                     </li>
 
                     <li className="tip-item">
                         <p className="font__p">
                             <i className="fas fa-check small_margin_right"></i>
-                            Dwukrotnie sprawdź czy nie ma błędów
+                            Double-check grammar and spelling
                         </p>
                     </li>
 
                     <li className="tip-item">
                         <p className="font__p">
                             <i className="fas fa-check small_margin_right"></i>
-                            Zacznij swoje pytanie od "Co", "Dlaczego", "Jak", itp.
+                            Start Your question with "What","How","Why",etc.
                         </p>
                     </li>
                 </ul>

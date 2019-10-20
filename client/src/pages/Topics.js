@@ -84,7 +84,7 @@ const Topics = ({
         <div>
             <header className="topics-header">
                 <p className="app_color_font font__bold font__p topics-headline">
-                    Tematy
+                    Topics
                 </p>
                 <br/>
 
@@ -99,7 +99,7 @@ const Topics = ({
                   onChange={() => changePosts("oldest")}
                   />
                  <p onClick={() => changePosts("oldest")}>
-                     Najstarsze
+                     The Oldest
                     </p>
                 </div>
 
@@ -115,7 +115,7 @@ const Topics = ({
                     onChange={() => changePosts("latest")}/>
                     <p
                     onClick={() => changePosts("latest")}>
-                        Najnowsze
+                        The Latest
                     </p>
                 </div>
 
@@ -130,7 +130,7 @@ const Topics = ({
                  onChange={() => changePosts("mostLiked")}
                  />
                  <p onClick={() => changePosts("mostLiked")}>
-                     Najbardziej aktywne</p>
+                     The Most Liked</p>
                 </div>
 
                 <div className={
@@ -144,7 +144,7 @@ const Topics = ({
                     onChange={() => changePosts("mostCommented")}
                     />
                     <p onClick={() => changePosts("mostCommented")}>
-                        Najbardziej komentowane
+                        The Most Commented
                     </p>
                 </div>
 

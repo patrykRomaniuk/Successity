@@ -25,15 +25,15 @@ const UserProfile = ({ getUserById,getUserPostsByUserId,match,user,post,userProf
                 <div className="data-items">
 
                     <div className="font__p data-item">
-                        <p style={{ marginRight: '.4em' }} className="font__bold">Imię:</p>{ userProfile.name }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Name:</p>{ userProfile.name }
                     </div>
 
                     <div className="font__p data-item">
-                        <p style={{ marginRight: '.4em' }} className="font__bold">Nazwisko:</p> { userProfile.last_name }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Last Name:</p> { userProfile.last_name }
                     </div>
 
                     <div className="font__p data-item">
-                        <p style={{ marginRight: '.4em' }} className="font__bold">Pseudonim:</p> { userProfile.username }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Username:</p> { userProfile.username }
                     </div>
 
                     <div className="font__p data-item">
@@ -48,13 +48,13 @@ const UserProfile = ({ getUserById,getUserPostsByUserId,match,user,post,userProf
                             ?
                             (
                                 <p className="user-posts-header font__p font__bold">
-                                    His posts
+                                    His/Her posts
                                 </p>
                             )
                             :
                             (
                                 <p className="user-posts-header font__p font__bold">
-                                    He hasn't added post
+                                    He/She hasn't added post
                                 </p>
                             )
                         }

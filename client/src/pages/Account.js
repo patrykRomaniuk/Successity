@@ -24,15 +24,15 @@ const Account = ({ getUserPosts,profilePosts,auth: { avatar,email,name,last_name
 
                 <div className="data-items">
                     <div className="font__p data-item">
-                        <p style={{ marginRight: '.4em' }} className="font__bold">Imię:</p> { name }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Name:</p> { name }
                     </div>
 
                     <div className="font__p data-item">
-                        <p style={{ marginRight: '.4em' }} className="font__bold">Nazwisko:</p> { last_name }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Last Name:</p> { last_name }
                     </div>
 
                     <div className="font__p data-item">
-                        <p style={{ marginRight: '.4em' }} className="font__bold">Pseudonim:</p> { username }
+                        <p style={{ marginRight: '.4em' }} className="font__bold">Username:</p> { username }
                     </div>
 
                     <div className="font__p data-item">
@@ -50,13 +50,13 @@ const Account = ({ getUserPosts,profilePosts,auth: { avatar,email,name,last_name
                          ?
                         (
                             <p className="user-posts-header font__p font__bold">
-                                Twoje tematy
+                                Your topics
                             </p>
                         )
                         :
                         (
                             <p className="user-posts-header font__p font__bold">
-                                Nie zadałeś żadnych pytań
+                                You haven't made any posts yet
                             </p>
                         )
                      }

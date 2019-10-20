@@ -34,7 +34,7 @@ const Login = ({ loginUser,isAuthenticated }) => {
                 <header className="register-header-wrapper">
                     <p className="font__p p__size register-header">
                         <i className="fas fa-users users-icon app_color_font"></i>
-                       Zaloguj się
+                      Log in
                     </p>
                 </header>
 
@@ -49,7 +49,7 @@ const Login = ({ loginUser,isAuthenticated }) => {
                 />
 
                 <div className="label-wrapper">
-                    <label className="label__register p__size">Hasło</label>
+                    <label className="label__register p__size">Password</label>
                 </div>
                 <input 
                 name="password"
@@ -61,13 +61,13 @@ const Login = ({ loginUser,isAuthenticated }) => {
                 <div className="label-wrapper">
                     <Link to="/register">
                         <p className="p__size font__p password__info">
-                            Zarejestruj się
+                            Sign up
                         </p>
                     </Link>
                 </div>
 
                 <div className="button-wrapper app_color_background" onClick={(e) => onSubmit(e)}>
-                    <p className="button-letter">Zaloguj się</p>
+                    <p className="button-letter">Log in</p>
                 </div>
 
             </div>
