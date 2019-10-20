@@ -17,6 +17,7 @@ import UserProfile from './pages/UserProfile';
 import Users from './pages/Users';
 import ChangePassword from './pages/ChangePassword';
 import ChangeProfile from './pages/ChangeProfile';
+import ContactPage from './pages/ContactPage';
 import './styles/Dashboard.css';
 import './styles/App.css';
 import './styles/AddPostPage.css';
@@ -49,6 +50,7 @@ const App = () => {
         <Route exact path="/users/user/:user_id" component={ UserProfile }/>
         <Route exact path="/change-password" component={ ChangePassword }/>
         <Route exact path="/change-profile" component={ ChangeProfile }/>
+        <Route exact path="/contact-us" component={ ContactPage }/>
         </Switch>
       </Router>
     </Provider>
