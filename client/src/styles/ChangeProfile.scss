@@ -59,6 +59,9 @@
         }
         .change-password-label{
             margin-bottom: .5em;
+            &:last-child{
+                margin-bottom: 0em;
+            }
         }
         .change-password-input{
             border: 1px solid rgba(0,0,0,.05);
