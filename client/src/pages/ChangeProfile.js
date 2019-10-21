@@ -73,6 +73,24 @@ const ChangeProfile = ({ auth,changeEmail,changeUsername,changeName,changeLastNa
                         className="change-profile-input"
                         />
 
+                {
+                    (auth.error && (auth.error !== null || auth.error !== '' || auth.error !== {})) 
+                    &&
+                    (
+                        <div>
+                            <p 
+                            className="font__bold font__p p__size"
+                            style={{
+                                color: '#fb2f2f',
+                                textAlign: 'center'
+                            }}
+                            >
+                                You can't change to  this
+                            </p>
+                        </div>
+                    )
+                }
+
                         <div className="change-profile-buttons-wrapper">
 
                             <div className="change-profile-btn" onClick={(e) => onSubmit(e)}>

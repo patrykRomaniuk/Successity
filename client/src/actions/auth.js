@@ -52,7 +52,8 @@ export const registerUser = ( name,last_name,username,email,password ) => async 
     } catch (error) {
         console.log(error.message);
         dispatch({
-            type: REGISTER_FAIL
+            type: REGISTER_FAIL,
+            payload: "REJECTED"
         });
     }
 };
@@ -72,7 +73,7 @@ export const checkPassword = password => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: CHANGE_REJECT });
+        dispatch({ type: CHANGE_REJECT,payload: "REJECTED" });
     }
 };
 
@@ -91,7 +92,7 @@ export const changePassword = new_password => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: CHANGE_REJECT });
+        dispatch({ type: CHANGE_REJECT, payload: "REJECTED" });
     }
 }
 
@@ -110,7 +111,7 @@ export const changeEmail = (new_email) => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: CHANGE_REJECT });
+        dispatch({ type: CHANGE_REJECT, payload: "REJECTED" });
     }
 }
 
@@ -129,7 +130,7 @@ export const changeUsername = (new_username) => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: CHANGE_REJECT });
+        dispatch({ type: CHANGE_REJECT, payload: "REJECTED" });
     }
 }
 
@@ -148,7 +149,7 @@ export const changeName = (new_name) => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: CHANGE_REJECT });
+        dispatch({ type: CHANGE_REJECT, payload: "REJECTED" });
     }
 }
 
@@ -167,7 +168,7 @@ export const changeLastName = (new_last_name) => async dispatch => {
         });
     } catch (error) {
         console.log(error.message);
-        dispatch({ type: CHANGE_REJECT });
+        dispatch({ type: CHANGE_REJECT, payload: "REJECTED" });
     }
 }
 
@@ -188,7 +189,8 @@ export const loginUser = ( email,password ) => async dispatch => {
     } catch (error) {
         console.log(error.message);
         dispatch({
-            type: LOGIN_FAIL
+            type: LOGIN_FAIL,
+            payload: "REJECTED"
         });
     }
 }

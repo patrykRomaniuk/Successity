@@ -25,8 +25,7 @@ const initialState = {
     isPasswordChanged: false,
     user: {},
     users: {},
-    error: {},
-    errors: {}
+    error: null
 };
 
 const auth = (state = initialState, action) => {
@@ -48,7 +47,7 @@ const auth = (state = initialState, action) => {
             return {
                 ...state,
                 ...payload,
-                error: {},
+                error: null,
                 isAuthenticated: true,
                 isLoading: false,
                 user: payload
@@ -71,6 +70,7 @@ const auth = (state = initialState, action) => {
             return {
                 ...state,
                 ...payload,
+                error: {},
                 isAuthenticated: true,
                 isLoading: false
             }
@@ -84,6 +84,7 @@ const auth = (state = initialState, action) => {
                 ...payload,
                 post: null,
                 posts: null,
+                error: payload,
                 isAuthenticated: false,
                 isLoading: true
             }
@@ -93,7 +94,6 @@ const auth = (state = initialState, action) => {
                 ...payload,
                 post: null,
                 posts: null,
-                errors: payload,
                 error: payload
             }
         default:

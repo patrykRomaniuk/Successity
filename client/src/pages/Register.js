@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { Redirect } from 'react-router-dom';
 
-const Register = ({ registerUser,isAuthenticated }) => {
+const Register = ({ registerUser,isAuthenticated,error }) => {
 
     if(isAuthenticated){
         return <Redirect to="/"/>
@@ -106,6 +106,24 @@ const Register = ({ registerUser,isAuthenticated }) => {
                         </p>
                     </div>
 
+                {
+                    (error && (error !== null || error !== '' || error !== {})) 
+                    &&
+                    (
+                        <div>
+                            <p 
+                            className="font__bold font__p p__size"
+                            style={{
+                                color: '#fb2f2f',
+                                textAlign: 'center'
+                            }}
+                            >
+                                Wrong e-mail or password
+                            </p>
+                        </div>
+                    )
+                }
+
                     <div className="button-wrapper app_color_background" onClick={(e) => onSubmit(e)}>
                         <p className="button-letter">Sign Up</p>
                     </div>
@@ -117,7 +135,8 @@ const Register = ({ registerUser,isAuthenticated }) => {
 }
 
 const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.auth.error
 });
 
 export default connect(mapStateToProps, { registerUser })(Register);

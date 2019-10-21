@@ -10,6 +10,9 @@ const ChangePassword = ({ auth,changePassword,checkPassword }) => {
     }
 
     const [ outputSection,setOutputSection ] = useState(false);
+    const [ isNotFullFilled,setIsNotFullFilled ] = useState(false);
+    const [ arePasswordsWrong,setArePasswordsWrong ] = useState(false);
+
 
     let [ formData,setFormData ] = useState({
         password1: '',
@@ -26,9 +29,11 @@ const ChangePassword = ({ auth,changePassword,checkPassword }) => {
     const onSubmit = async e => {
         e.preventDefault();
         if(password1 !== password2){
-            alert(`Passwords don't match`);
+            setArePasswordsWrong(true);
+            setIsNotFullFilled(false);
         } else if(password1 === '' || password1 === null || password2 === '' || password2 === null){
-            alert('Please fulfill inputs');
+            setArePasswordsWrong(false);
+            setIsNotFullFilled(true);
         } else {
             checkPassword(password1);
         }
@@ -73,6 +78,62 @@ const ChangePassword = ({ auth,changePassword,checkPassword }) => {
 
                         </div>
                         
+                        {
+           
+                            (auth.error && (auth.error !== null || auth.error !== '' || auth.error !== {})) 
+                            &&
+                            (
+                                <div>
+                                    <p 
+                                    className="font__bold font__p p__size"
+                                    style={{
+                                        color: '#fb2f2f',
+                                        textAlign: 'center'
+                                    }}
+                                    >
+                                        Wrong Password
+                                    </p>
+                                </div>
+                            ) 
+                        }
+
+                        {
+                            isNotFullFilled
+                             &&
+                             (
+                                 <div>
+                                     <p 
+                                     className="font__bold font__p p__size"
+                                     style={{
+                                         color: '#fb2f2f',
+                                         textAlign: 'center'
+                                     }}
+                                     >
+                                         Fullfill inputs
+                                     </p>
+                                 </div>
+                             ) 
+                        }
+
+                        {
+                            arePasswordsWrong
+                             &&
+                             (
+                                 <div>
+                                     <p 
+                                     className="font__bold font__p p__size"
+                                     style={{
+                                         color: '#fb2f2f',
+                                         textAlign: 'center'
+                                     }}
+                                     >
+                                         Passwords are not equal
+                                     </p>
+                                 </div>
+                             ) 
+                        }
+
+
                         <div className="password-page-button" onClick={(e) => onSubmit(e)}>
                             Submit                          
                         </div>
@@ -107,7 +168,11 @@ const ChangePassword = ({ auth,changePassword,checkPassword }) => {
                             }} 
                             onClick={() => {
                                 changePassword(newPassword);
-                                setOutputSection(true);
+                                if(auth.error === "REJECTED"){
+                                    setOutputSection(false);
+                                } else {
+                                    setOutputSection(true);
+                                }
                             }}
                             >
                                 Submit
@@ -118,8 +183,42 @@ const ChangePassword = ({ auth,changePassword,checkPassword }) => {
                 )
             }
 
+{
+                 auth.isAllowedToChangePassword === true 
+                 && 
+                 outputSection === true
+                 && 
+                 (
+                    auth.error !== null
+                    ||
+                    auth.error
+                 )
+                 &&
+                 (
+                    <section className="change-profile-section">
+
+                    <div className="change-password-input-wrapper flex__center">
+                        <span className="font__bold font__p p__size">You can't change on this password</span>
+                    </div>
+
+                </section>
+                 )
+            }
+
             {
-                auth.isAllowedToChangePassword === true && outputSection === true 
+                auth.isAllowedToChangePassword === true 
+                && 
+                outputSection === true  
+                && 
+                (
+                    !auth.error
+                    ||
+                    auth.error === null
+                    ||
+                    auth.error === {}
+                    ||
+                    auth.error === ''
+                )
                 &&
                 (
                     <section className="change-profile-section">
@@ -129,7 +228,7 @@ const ChangePassword = ({ auth,changePassword,checkPassword }) => {
                         </div>
 
                     </section>
-                 )
+                )
             }
 
         </div>
