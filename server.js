@@ -3,14 +3,12 @@ const path = require('path');
 const app = express();
 const connectDB = require('./config/db');
 const cors = require('cors');
-const bodyParser = require('body-parser');
-
-app.use(cors());
 
 connectDB();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(cors());
+
+app.use(express.json({ extended: false }));
 
 app.use('/api/posts',require('./routes/posts'));
 app.use('/api/users',require('./routes/users'));
