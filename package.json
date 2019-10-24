@@ -4,16 +4,13 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "heroku-postbuild": "cd client && npm install && npm run build",
     "client": "cd client && npm start",
-    "forever": "forever -w server.js"
+    "forever": "forever -w server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sendgrid/mail": "^6.4.0",
-    "body-parser": "^1.19.0",
-    "express-handlebars": "^3.1.0",
     "forever": "^1.0.0"
   }
 }
