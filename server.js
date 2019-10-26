@@ -10,8 +10,8 @@ app.use(cors());
 
 app.use(express.json({ extended: false }));
 
-//app.use('/api/posts',require('./routes/posts'));
-//app.use('/api/users',require('./routes/users'));
+app.use('/api/posts',require('./routes/posts'));
+app.use('/api/users',require('./routes/users'));
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
