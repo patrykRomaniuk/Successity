@@ -22,7 +22,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.getItem('token'));
     }
     try {
-        const res = await axios.get('http://localhost:5000/api/users');
+        const res = await axios.get('https://shrouded-wave-01076.herokuapp.com/register/api/users');
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -43,7 +43,7 @@ export const registerUser = ( name,last_name,username,email,password ) => async 
                 'Content-Type': 'application/json'
             }
         };
-        const res = await axios.post('http://localhost:5000/api/users',body,config);
+        const res = await axios.post('https://shrouded-wave-01076.herokuapp.com/api/users',body,config);
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -66,7 +66,7 @@ export const checkPassword = password => async dispatch => {
             }
         };
         const body = JSON.stringify({ password });
-        const res = await axios.post(`http://localhost:5000/api/users/check_password`,body,config);
+        const res = await axios.post(`https://shrouded-wave-01076.herokuapp.com/api/users/check_password`,body,config);
         dispatch({
             type: CHECK_PASSWORDS,
             payload: res.data
@@ -85,7 +85,7 @@ export const changePassword = new_password => async dispatch => {
             }
         };
         const body = JSON.stringify({ new_password });
-        const res = await axios.post(`http://localhost:5000/api/users/change_password`,body,config);
+        const res = await axios.post(`https://shrouded-wave-01076.herokuapp.com/api/users/change_password`,body,config);
         dispatch({
             type: CHANGE_PASSWORD,
             payload: res.data
@@ -104,7 +104,7 @@ export const changeEmail = (new_email) => async dispatch => {
             }
         };
         const body = JSON.stringify({ new_email });
-        let res = await axios.post('http://localhost:5000/api/users/change_email',body,config);
+        let res = await axios.post('https://shrouded-wave-01076.herokuapp.com/api/users/change_email',body,config);
         dispatch({
             type: CHANGE_EMAIL,
             payload: res.data
@@ -123,7 +123,7 @@ export const changeUsername = (new_username) => async dispatch => {
             }
         };
         const body = JSON.stringify({ new_username });
-        let res = await axios.post('http://localhost:5000/api/users/change_username',body,config);
+        let res = await axios.post('https://shrouded-wave-01076.herokuapp.com/api/users/change_username',body,config);
         dispatch({
             type: CHANGE_USERNAME,
             payload: res.data
@@ -142,7 +142,7 @@ export const changeName = (new_name) => async dispatch => {
             }
         };
         const body = JSON.stringify({ new_name });
-        let res = await axios.post('http://localhost:5000/api/users/change_name',body,config);
+        let res = await axios.post('https://shrouded-wave-01076.herokuapp.com/api/users/change_name',body,config);
         dispatch({
             type: CHANGE_NAME,
             payload: res.data
@@ -161,7 +161,7 @@ export const changeLastName = (new_last_name) => async dispatch => {
             }
         };
         const body = JSON.stringify({ new_last_name });
-        let res = await axios.post('http://localhost:5000/api/users/change_last_name',body,config);
+        let res = await axios.post('https://shrouded-wave-01076.herokuapp.com/api/users/change_last_name',body,config);
         dispatch({
             type: CHANGE_LAST_NAME,
             payload: res.data
@@ -180,7 +180,7 @@ export const loginUser = ( email,password ) => async dispatch => {
             }
         };
         const body = JSON.stringify({ email,password });
-        const res = await axios.post('http://localhost:5000/api/users/login',body,config);
+        const res = await axios.post('https://shrouded-wave-01076.herokuapp.com/api/users/login',body,config);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data

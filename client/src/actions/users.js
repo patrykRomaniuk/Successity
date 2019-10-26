@@ -11,7 +11,7 @@ import {
 
 export const getUsers = () => async dispatch => {
     try {
-        const res = await axios.get('http://localhost:5000/api/users/users');
+        const res = await axios.get('https://shrouded-wave-01076.herokuapp.com/api/users/users');
         dispatch({
             type: GET_USERS,
             payload: res.data
@@ -26,7 +26,7 @@ export const getUsers = () => async dispatch => {
 
 export const getUserPosts = () => async dispatch => {
     try {
-        const res = await axios.get('http://localhost:5000/api/posts/posts/user_posts');
+        const res = await axios.get('https://shrouded-wave-01076.herokuapp.com/api/posts/posts/user_posts');
         dispatch({
             type: GET_USER_POSTS,
             payload: res.data
@@ -39,7 +39,7 @@ export const getUserPosts = () => async dispatch => {
 
 export const getUserPostsByUserId = (user_id) => async dispatch => {
     try {
-        const res = await axios.get(`http://localhost:5000/api/posts/posts/user_posts/posts/${user_id}`);
+        const res = await axios.get(`https://shrouded-wave-01076.herokuapp.com/api/posts/posts/user_posts/posts/${user_id}`);
         dispatch({
             type: GET_POSTS_BY_USER_ID,
             payload: res.data
@@ -52,7 +52,7 @@ export const getUserPostsByUserId = (user_id) => async dispatch => {
 
 export const getUserById = user_id => async dispatch => {
     try {
-        const res = await axios.get(`http://localhost:5000/api/users/user/id/${user_id}`);
+        const res = await axios.get(`https://shrouded-wave-01076.herokuapp.com/api/users/user/id/${user_id}`);
         dispatch({
             type: GET_USER,
             payload: res.data
@@ -71,7 +71,7 @@ export const searchUsers = (searchValue) => async dispatch => {
             }
         };
         const body = JSON.stringify({ searchValue });
-        const res = await axios.put(`http://localhost:5000/api/users`,body,config);
+        const res = await axios.put(`https://shrouded-wave-01076.herokuapp.com/api/users`,body,config);
         dispatch({
             type: SEARCH_USERS,
             payload: res.data

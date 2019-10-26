@@ -31,7 +31,7 @@ export const clearPost = () => async dispatch => {
 export const getPost = (post_id) => async dispatch => {
     try {
         dispatch(clearPost());
-        const res = await axios.get(`http://localhost:5000/api/posts/post/${post_id}`);
+        const res = await axios.get(`https://shrouded-wave-01076.herokuapp.com/api/posts/post/${post_id}`);
         dispatch({
             type: GET_POST,
             payload: res.data
@@ -44,7 +44,7 @@ export const getPost = (post_id) => async dispatch => {
 
 export const getLatestPosts = () =>  async dispatch => {
     try {
-        const res = await axios.get('http://localhost:5000/api/posts/latest');
+        const res = await axios.get('https://shrouded-wave-01076.herokuapp.com/api/posts/latest');
         dispatch({
             type: LATEST_POSTS,
             payload: res.data
@@ -58,7 +58,7 @@ export const getLatestPosts = () =>  async dispatch => {
 
 export const getMostCommented = () => async dispatch => {
     try {
-        const res = await axios.get('http://localhost:5000/api/posts/posts/most_commented');
+        const res = await axios.get('https://shrouded-wave-01076.herokuapp.com/api/posts/posts/most_commented');
         dispatch({
             type: MOST_COMMENTED,
             payload: res.data
@@ -71,7 +71,7 @@ export const getMostCommented = () => async dispatch => {
 
 export const getMostLikedPosts = () => async dispatch => {
     try {
-        const res = await axios.get(`http://localhost:5000/api/posts/posts/most_liked`);
+        const res = await axios.get(`https://shrouded-wave-01076.herokuapp.com/api/posts/posts/most_liked`);
         dispatch({
             type: MOST_LIKED_POSTS,
             payload: res.data
@@ -84,7 +84,7 @@ export const getMostLikedPosts = () => async dispatch => {
 
 export const getPosts = () => async dispatch => {
     try {
-        const res = await axios.get('http://localhost:5000/api/posts/posts');
+        const res = await axios.get('https://shrouded-wave-01076.herokuapp.com/api/posts/posts');
         dispatch({
             type: GET_POSTS,
             payload: res.data
@@ -103,7 +103,7 @@ export const makePost = text => async dispatch => {
             }
         };
         const body = JSON.stringify({ text });
-        const res = await axios.post('http://localhost:5000/api/posts',body,config);
+        const res = await axios.post('https://shrouded-wave-01076.herokuapp.com/api/posts',body,config);
         dispatch({
             type: MAKE_POST,
             payload: res.data
@@ -122,7 +122,7 @@ export const makeComment = (post_id,text) => async dispatch => {
             }
         };
         const body = JSON.stringify({ text })
-        const res = await axios.put(`http://localhost:5000/api/posts/comments/${post_id}`,body,config);
+        const res = await axios.put(`https://shrouded-wave-01076.herokuapp.com/api/posts/comments/${post_id}`,body,config);
         dispatch({
             type: MAKE_COMMENT,
             payload: res.data
@@ -136,7 +136,7 @@ export const makeComment = (post_id,text) => async dispatch => {
 
 export const likeComment = (post_id,comment_id) => async dispatch => {
     try {
-        const res = await axios.put(`http://localhost:5000/api/posts/likes/${post_id}/${comment_id}`);
+        const res = await axios.put(`https://shrouded-wave-01076.herokuapp.com/api/posts/likes/${post_id}/${comment_id}`);
         dispatch({
             type: LIKE_COMMENT,
             payload: res.data
@@ -158,7 +158,7 @@ export const searchTopics = searchValue => async dispatch => {
             }
         };
         const body = JSON.stringify({ searchValue });
-        const res = await axios.post('http://localhost:5000/api/posts/search_post',body,config);
+        const res = await axios.post('https://shrouded-wave-01076.herokuapp.com/api/posts/search_post',body,config);
         dispatch({
             type: SEARCH_TOPICS,
             payload: res.data
@@ -171,7 +171,7 @@ export const searchTopics = searchValue => async dispatch => {
 
 export const addLike = (like_id,isOldest,isLatest,isMostCommented,isMostLiked) =>  async dispatch => {
     try {
-        const res = await axios.put(`http://localhost:5000/api/posts/likes/${like_id}`);
+        const res = await axios.put(`https://shrouded-wave-01076.herokuapp.com/api/posts/likes/${like_id}`);
         dispatch({
             type: ADD_LIKE,
             payload: res.data
@@ -193,7 +193,7 @@ export const addLike = (like_id,isOldest,isLatest,isMostCommented,isMostLiked) =
 
 export const addLikePostPage = (like_id) => async dispatch => {
     try {
-        const res = await axios.put(`http://localhost:5000/api/posts/likes/${like_id}`);
+        const res = await axios.put(`https://shrouded-wave-01076.herokuapp.com/api/posts/likes/${like_id}`);
         dispatch({
             type: ADD_LIKE,
             payload: res.data
@@ -207,7 +207,7 @@ export const addLikePostPage = (like_id) => async dispatch => {
 
 export const removeLikeFromTopicPage = (post_id,like_id,isOldest,isLatest,isMostCommented,isMostLiked) => async dispatch => {
     try {
-        const res = await axios.delete(`http://localhost:5000/api/posts/likes/${post_id}/${like_id}`);
+        const res = await axios.delete(`https://shrouded-wave-01076.herokuapp.com/api/posts/likes/${post_id}/${like_id}`);
         dispatch({
             type: REMOVE_LIKE,
             payload: res.data
@@ -229,7 +229,7 @@ export const removeLikeFromTopicPage = (post_id,like_id,isOldest,isLatest,isMost
 
 export const removeLikeFromPostPage = (post_id,like_id) => async dispatch => {
     try {
-        const res = await axios.delete(`http://localhost:5000/api/posts/likes/${post_id}/${like_id}`);
+        const res = await axios.delete(`https://shrouded-wave-01076.herokuapp.com/api/posts/likes/${post_id}/${like_id}`);
         dispatch({
             type: REMOVE_LIKE,
             payload: res.data
@@ -243,7 +243,7 @@ export const removeLikeFromPostPage = (post_id,like_id) => async dispatch => {
 
 export const removeLikeFromComment = (post_id,comment_id,like_id) => async dispatch => {
     try {
-        const res = await axios.delete(`http://localhost:5000/api/posts/likes/remove_comment_like/${post_id}/${comment_id}/${like_id}`);
+        const res = await axios.delete(`https://shrouded-wave-01076.herokuapp.com/api/posts/likes/remove_comment_like/${post_id}/${comment_id}/${like_id}`);
         dispatch({
             type: REMOVE_LIKE,
             payload: res.data
@@ -257,7 +257,7 @@ export const removeLikeFromComment = (post_id,comment_id,like_id) => async dispa
 
 export const removePost = post_id => async dispatch => {
     try {
-        const res = await axios.delete(`http://localhost:5000/api/posts/${post_id}`);
+        const res = await axios.delete(`https://shrouded-wave-01076.herokuapp.com/api/posts/${post_id}`);
         dispatch({
             type: REMOVE_POST,
             payload: res.data
