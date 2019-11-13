@@ -22,7 +22,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.getItem('token'));
     }
     try {
-        const res = await axios.get('https://shrouded-wave-01076.herokuapp.com/register/api/users');
+       const res = await axios.get('https://shrouded-wave-01076.herokuapp.com/api/users');
         dispatch({
             type: USER_LOADED,
             payload: res.data
