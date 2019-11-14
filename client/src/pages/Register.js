@@ -118,7 +118,7 @@ const Register = ({ registerUser,isAuthenticated,error }) => {
                                 textAlign: 'center'
                             }}
                             >
-                                Wrong e-mail or password
+                                Something went wrong...
                             </p>
                         </div>
                     )
