@@ -12,7 +12,7 @@ router.get(
         try {
             //Getting all posts
             let posts = await Post.find();
-            //Display data
+            //Displaying data
             res.json(posts);
         } catch (error) {
             console.log(error.message);
@@ -28,7 +28,7 @@ router.get(
         try {
             //Get all posts and sort them
             let posts = await Post.find().sort({ likes: -1 });
-            //Display data
+            //Displaying data
             res.json(posts);
         } catch (error) {
             console.log(error.message);
@@ -44,7 +44,7 @@ router.get(
         try {
             //Get all posts and 
             let posts = await Post.find().sort({ date: -1 });
-            //Display data
+            //Displaying data
             res.json(posts);
         } catch (error) {
             console.log(error.message);
@@ -60,7 +60,7 @@ router.get(
         try {
             //Sorting posts by id and number of likes
             let post = await Post.findById(req.params.post_id).sort({ likes: -1 });
-            //Display data
+            //Displaying data
             res.json(post);  
         } catch (error) {
             console.log(error.message);
@@ -69,11 +69,14 @@ router.get(
     }
 );
 
+//Getting posts by number of comments
 router.get(
     '/posts/most_commented',
     async(req,res) => {
         try {
+            //Getting pots and sorting them by number of comments
             let posts = await Post.find().sort({ comments: -1 });
+            //Displaying data
             res.json(posts);
         } catch (error) {
             console.log(error.message);
