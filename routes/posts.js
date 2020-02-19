@@ -85,13 +85,17 @@ router.get(
     }
 );
 
+//Getting user posts
 router.get(
     '/posts/user_posts',
     auth,
     async(req,res) => {
         try {
+            //Getting all posts
             let posts = await Post.find();
+            //Searching for specific user posts by ID
             let userPosts = posts.filter(post => post.user.toString() === req.user.id);
+            //Displaying data
             res.json(userPosts);
         } catch (error) {
             console.log(error.message);
