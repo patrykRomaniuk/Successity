@@ -5,11 +5,14 @@ const User = require('../modules/User');
 const Post = require('../modules/Post');
 const { validationResult,check } = require('express-validator');
 
+//Getting all posts
 router.get(
     '/posts',
     async(req,res) => {
         try {
+            //Getting all posts
             let posts = await Post.find();
+            //Displaying them
             res.json(posts);
         } catch (error) {
             console.log(error.message);
