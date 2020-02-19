@@ -53,11 +53,14 @@ router.get(
     }
 );
 
+//Get post by ID
 router.get(
     '/post/:post_id',
     async(req,res) => {
         try {
+            //Sorting posts by id and number of likes
             let post = await Post.findById(req.params.post_id).sort({ likes: -1 });
+            //Display data
             res.json(post);  
         } catch (error) {
             console.log(error.message);
