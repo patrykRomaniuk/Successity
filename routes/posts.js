@@ -21,11 +21,14 @@ router.get(
     }
 );
 
+//Sort posts by likes
 router.get(
     '/posts/most_liked',
     async(req,res) => {
         try {
+            //Get all posts and sort them
             let posts = await Post.find().sort({ likes: -1 });
+            //Display them
             res.json(posts);
         } catch (error) {
             console.log(error.message);
