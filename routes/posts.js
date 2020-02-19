@@ -12,7 +12,7 @@ router.get(
         try {
             //Getting all posts
             let posts = await Post.find();
-            //Displaying them
+            //Display data
             res.json(posts);
         } catch (error) {
             console.log(error.message);
@@ -28,7 +28,7 @@ router.get(
         try {
             //Get all posts and sort them
             let posts = await Post.find().sort({ likes: -1 });
-            //Display them
+            //Display data
             res.json(posts);
         } catch (error) {
             console.log(error.message);
@@ -37,11 +37,14 @@ router.get(
     }
 )
 
+//Get posts by date
 router.get(
     '/latest',
     async(req,res) => {
         try {
+            //Get all posts and 
             let posts = await Post.find().sort({ date: -1 });
+            //Display data
             res.json(posts);
         } catch (error) {
             console.log(error.message);
