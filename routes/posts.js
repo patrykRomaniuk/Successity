@@ -104,11 +104,14 @@ router.get(
     }
 );
 
+//Getting user posts by user's id
 router.get(
     '/posts/user_posts/posts/:user_id',
     async(req,res) => {
         try {
+            //Getting user posts 
             let posts = await Post.find({ user: req.params.user_id });
+            //Displaying data
             res.json(posts);
         } catch (error) {
             console.log(error.message);
