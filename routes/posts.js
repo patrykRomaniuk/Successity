@@ -120,6 +120,7 @@ router.get(
     }
 )
 
+//Adding post
 router.post(
     '/',
     [
@@ -127,22 +128,29 @@ router.post(
     ],
     auth,
     async(req,res) => {
+        //Fetching data from user
         const { text } = req.body;
+        //Validation result errors
         const errors = validationResult(req);
+        //Getting user by id without password
         let user = await User.findById(req.user.id).select('-password');
 
+        //Checking if there are errors
         if(!errors.isEmpty()){
             return res.status(400).json({ errors: errors.array() });
         }
 
         try {
+            //Creating new post with fetched data
             let post = new Post({
                 text,
                 name: user.name,
                 avatar: user.avatar,
                 user: req.user.id
             });
+            //Saving post to database
             const registeredPost = await post.save();
+            //Displaying data
             res.json(registeredPost);
         } catch (error) {
             console.log(error.message);
