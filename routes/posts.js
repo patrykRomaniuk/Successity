@@ -255,6 +255,7 @@ router.put(
     }
 );
 
+//Adding comment
 router.put(
     '/comments/:post_id',
     [
@@ -262,23 +263,30 @@ router.put(
     ],
     auth,
     async(req,res) => {
+        //Getting data from user
         const { text } = req.body;
+        //Getting errors from validationResult
         const errors = validationResult(req);
-
+        //Checking if there are errors
         if(!errors.isEmpty()){
             return res.status(400).json({ errors: errors.array() });
         }
-
         try {
+            //Fetching post
             let post = await Post.findById(req.params.post_id);
+            //Fetching user
             let user = await User.findById(req.user.id);
+            //Making comment
             let comment = {
                 text,
                 name: user.name,
                 avatar: user.avatar
             };
+            //Adding comment to comments
             post.comments.unshift(comment);
+            //Saving to database
             await post.save();
+            //Displaying data
             res.json(post.comments);
         } catch (error) {
             console.log(error.message);
@@ -287,16 +295,21 @@ router.put(
     }
 )
 
+//Removing post
 router.delete(
     '/:post_id',
     auth,
     async(req,res) => {
         try {
+            //Getting post
             let post = await Post.findById(req.params.post_id);
+            //Checking if user is allowed to delete post
             if(post.user.toString() !== req.user.id){
                 return res.status(500).json({ msg: "You are not allowed to do that" });
             }
+            //Removing post from database
             await post.remove();
+            //Message 
             res.json({ msg: "Post removed" });
         } catch (error) {
             console.log(error.message);
