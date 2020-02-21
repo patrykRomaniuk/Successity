@@ -159,6 +159,7 @@ router.post(
     }
 );
 
+//Searching posts
 router.post(
     '/search_post',
     [
@@ -166,15 +167,21 @@ router.post(
     ],
     async(req,res) => {
         try {
+            //Getting data from user
             let { searchValue } = req.body;
+            //Fetching all posts
             let posts = await Post.find();
+            //Checking if input is empty
             if(searchValue === "" || searchValue === null){
                 let searchTextPosts = posts;
                 res.json(searchTextPosts);
             } else {
+                //Changed text for easier search function
                 let searchValueToLowerLetter = searchValue.toLowerCase().split(' ').join('');
+                //Searching the posts with previous text changes
                 let searchTextPosts = posts
-                .filter(post => post.text.toLowerCase().split(' ').join('').includes(searchValueToLowerLetter))
+                .filter(post => post.text.toLowerCase().split(' ').join('').includes(searchValueToLowerLetter));
+                //Displaying data
                 res.json(searchTextPosts);
             }
         } catch (error) {
