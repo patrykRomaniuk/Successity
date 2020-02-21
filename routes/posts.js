@@ -220,26 +220,33 @@ router.put(
     }
 );
 
+//Like comment
 router.put(
     '/likes/:post_id/:comment_id',
     auth,
     async(req,res) => {
         try {
+            //Getting post by id
             let post = await Post.findById(req.params.post_id);
+            //Checking if there is post
             if(!post){
                 return res.status(401).json({ msg: "There is not post that, you want like" });
             }
 
+            //Searching for comment
             const searchComments = post.comments
             .find(comment => comment._id.toString() === req.params.comment_id);
 
+            //Checking if post is already liked
             if(searchComments.likes.filter(like => like.user.toString() === req.user.id).length > 0){
                 return res.status(400).json({ msg: "Post Already Liked" });
             }
 
+            //If not, adding like
             searchComments.likes.unshift({ user: req.user.id });
+            //Save to database
             await post.save();
-
+            //Displaying data
             res.json(searchComments);
         } catch (error) {
             console.log(error.message);
