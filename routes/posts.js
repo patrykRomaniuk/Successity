@@ -383,16 +383,23 @@ router.delete(
     }
 )
 
+//Removing comment
 router.delete(
     '/comments/:post_id/:comment_id',
     auth,
     async(req,res) => {
         try {
+
+            //Getting post
             let post = await Post.findById(req.params.post_id);
+            //Getting index of comment to remove
             const removeCommentIndex = post.comments
             .find(comment => comment._id === req.params.comment_id);
+            //Removing comment by index
             post.comments.splice(removeCommentIndex,1);
+            //Saving to database
             await post.save();
+            //Displaying data
             res.json(post.comments);
         } catch (error) {
             console.log(error.message);
