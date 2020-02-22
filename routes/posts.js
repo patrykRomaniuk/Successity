@@ -318,23 +318,32 @@ router.delete(
     }
 );
 
+//Removing like
 router.delete(
     '/likes/:post_id/:like_id',
     auth,
     async(req,res) => {
         try {
+            //Getting post
             let post = await Post.findById(req.params.post_id);
+            //Getting like
             const likeAllow = post.likes.find(like => like.user.toString() === req.user.id);
+            //Checking if post is liked
             if(!likeAllow){
                 return res.status(404).json({ msg: "There is no like" });
             }
+            //Checking if is allowed to like post
             if(likeAllow.user.toString() !== req.user.id){
                 return res.status(401).json({ msg: "User is not authorized to do that" });
             }
+            //Getting index of post to remove
             const removeLikeIndex = post.likes
             .find(like => like._id !== req.params.like_id);
+            //Removing post by index
             post.likes.splice(removeLikeIndex,1);
+            //Saving to database
             await post.save();
+            //Displaying data
             res.json(post.likes);
         } catch (error) {
             console.log(error.message);
