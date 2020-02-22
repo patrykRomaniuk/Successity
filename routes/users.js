@@ -8,12 +8,15 @@ const auth = require('../middleware/auth');
 const User = require('../modules/User');
 const { check,validationResult } = require('express-validator');
 
+//Getting user
 router.get(
     '/',
     auth,
     async(req,res) => {
         try {
+            //Getting user without password
             let user = await User.findById(req.user.id).select('-password');
+            //Displaying data
             res.json(user);
         } catch (error) {
             console.log(error.message);
@@ -22,12 +25,16 @@ router.get(
     }
 );
 
+//Get user by email
 router.get(
     '/user/:user_email',
     async(req,res) => {
         try {
+            //Taking email via parameter
             let email = req.params.user_email;
+            //Searching for user using email
             let user = await User.findOne({ email });
+            //Displaying data
             res.json(user);
         } catch (error) {
             console.log(error.message);
