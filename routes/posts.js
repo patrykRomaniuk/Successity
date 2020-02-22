@@ -352,18 +352,26 @@ router.delete(
     }
 );
 
+//Remove like from comment
 router.delete(
     '/likes/remove_comment_like/:post_id/:comment_id/:like_id',
     auth,
     async(req,res) => {
         try {
+            //Getting post
             let post = await Post.findById(req.params.post_id);
+            //Taking like from comment
             let searchLike = post.comments
             .find(comment => comment._id.toString() === req.params.comment_id);
+            //Getting index of this like
             let removeIndex = searchLike.likes.find(like => like._id.toString() === req.params.like_id);
+            //Checking if there is like 
             if(removeIndex){
+                //Removing like by index
                 searchLike.likes.splice(removeIndex,1);
+                //Saving to database
                 await post.save();
+                //Displaying data
                 res.json(post);
             } else {
                 res.json({ msg: "There is no like of this comment" });
