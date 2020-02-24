@@ -1,9 +1,13 @@
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { Redirect } from 'react-router-dom';
 
 const Register = ({ registerUser,isAuthenticated,error }) => {
+
+    useEffect(() => {
+        error = {};
+    }, [])
 
     if(isAuthenticated){
         return <Redirect to="/"/>
@@ -27,12 +31,12 @@ const Register = ({ registerUser,isAuthenticated,error }) => {
             e.preventDefault();
             registerUser(name,last_name,username,email,password);
             setFormData({ 
-            ...formData,       
-            name: '',
-            last_name: '',
-            username: '',
-            email: '',
-            password: '' 
+                ...formData,       
+                name: '',
+                last_name: '',
+                username: '',
+                email: '',
+                password: '' 
             })
     }
 
