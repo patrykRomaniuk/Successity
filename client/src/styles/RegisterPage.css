@@ -10,8 +10,16 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 90vh;
+  min-height: 90vh;
+  padding-top: 2em;
   width: 100vw;
+}
+
+@media (min-width: 1024px) {
+  .register-page-wrapper,
+  .change-profile-page-wrapper {
+    padding-top: 0em;
+  }
 }
 
 .register-page-wrapper .register-section,
