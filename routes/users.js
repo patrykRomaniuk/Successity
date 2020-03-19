@@ -48,8 +48,11 @@ router.get(
     '/user/id/:user_id',
     async(req,res) => {
         try {
+            //Taking user id from request
             let id = req.params.user_id;
+            //Looking for user
             let user = await User.findById(id);
+            //Displaying user
             res.json(user);
         } catch (error) {
             console.log(error.message);
