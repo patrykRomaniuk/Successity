@@ -66,6 +66,7 @@ router.get(
     '/users',
     async(req,res) => {
         try {
+            //Getting users without passwords
             let users = await User.find().select('-password');
             res.json(users);
         } catch (error) {
