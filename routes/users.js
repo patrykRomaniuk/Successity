@@ -61,6 +61,7 @@ router.get(
     }
 );
 
+//Getting users
 router.get(
     '/users',
     async(req,res) => {
