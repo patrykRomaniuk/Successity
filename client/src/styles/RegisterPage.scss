@@ -5,8 +5,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    min-height: 90vh;
+    padding-top: 2em;
     width: 100vw;
+    @media(min-width: 1024px){
+        padding-top: 0em;
+    }
     .register-section,
     .change-profile-section{
         display: flex;

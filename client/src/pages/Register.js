@@ -1,13 +1,19 @@
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { Redirect } from 'react-router-dom';
 
 const Register = ({ registerUser,isAuthenticated,error }) => {
 
+    useEffect(() => {
+        error = {};
+    }, [])
+
     if(isAuthenticated){
         return <Redirect to="/"/>
     }
+
+    let [ showPassword,setShowPassword ] = useState(false);
 
     const [ formData,setFormData ] = useState({
         name: '',
@@ -27,12 +33,12 @@ const Register = ({ registerUser,isAuthenticated,error }) => {
             e.preventDefault();
             registerUser(name,last_name,username,email,password);
             setFormData({ 
-            ...formData,       
-            name: '',
-            last_name: '',
-            username: '',
-            email: '',
-            password: '' 
+                ...formData,       
+                name: '',
+                last_name: '',
+                username: '',
+                email: '',
+                password: '' 
             })
     }
 
@@ -92,12 +98,16 @@ const Register = ({ registerUser,isAuthenticated,error }) => {
                     <div className="label-wrapper">
                         <label className="label__register p__size">Password</label>
                     </div>
+
                     <input 
                     name="password"
-                    type="password"
+                    type={ showPassword ? "text" : "password" }
                     value={password}
                     onChange={(e) => onChange(e)}
                     />
+
+                    <i onClick={() => setShowPassword(!showPassword)} className={ showPassword ? "fas fa-eye" : "fas fa-eye-slash" }>
+                    </i>
 
                     <div className="label-wrapper">
                         <p className="p__size font__p password__info">
