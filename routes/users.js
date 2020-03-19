@@ -43,6 +43,7 @@ router.get(
     }
 );
 
+//Getting user
 router.get(
     '/user/id/:user_id',
     async(req,res) => {
