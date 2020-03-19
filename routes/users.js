@@ -68,6 +68,7 @@ router.get(
         try {
             //Getting users without passwords
             let users = await User.find().select('-password');
+            //Displaying users
             res.json(users);
         } catch (error) {
             console.log(error.message);
