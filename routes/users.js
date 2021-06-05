@@ -14,9 +14,7 @@ router.get(
     auth,
     async(req,res) => {
         try {
-            //Getting user without password
             let user = await User.findById(req.user.id).select('-password');
-            //Displaying data
             res.json(user);
         } catch (error) {
             console.log(error.message);
@@ -30,11 +28,8 @@ router.get(
     '/user/:user_email',
     async(req,res) => {
         try {
-            //Taking email via parameter
             let email = req.params.user_email;
-            //Searching for user using email
             let user = await User.findOne({ email });
-            //Displaying data
             res.json(user);
         } catch (error) {
             console.log(error.message);
@@ -48,11 +43,8 @@ router.get(
     '/user/id/:user_id',
     async(req,res) => {
         try {
-            //Taking user id from request
             let id = req.params.user_id;
-            //Looking for user
             let user = await User.findById(id);
-            //Displaying user
             res.json(user);
         } catch (error) {
             console.log(error.message);
@@ -66,9 +58,7 @@ router.get(
     '/users',
     async(req,res) => {
         try {
-            //Getting users without passwords
             let users = await User.find().select('-password');
-            //Displaying users
             res.json(users);
         } catch (error) {
             console.log(error.message);
